@@ -1,5 +1,5 @@
 /**
-*This script automatically update the wsdl definition in the soapui project
+*This script automatically update the wsdl definition and its test requests in the soapui project
 *Check for the variables- projectName, wsdlFiles to be updated before running the script
 */
 import com.eviware.soapui.impl.wsdl.WsdlInterface
