@@ -1,6 +1,7 @@
 /**This script extracts a partial string of a soap response node value of matching string 
 **and assigns a test case property
 **/
+import com.eviware.soapui.support.XmlHolder
 def xml = new XmlHolder(context.response)
 //change the xpath as per the need
 def responseValue = xml.getNodeValue("//*:CDES-PUT-Response/*:response-message")
