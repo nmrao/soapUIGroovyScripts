@@ -3,6 +3,10 @@
 **/
 import com.eviware.soapui.model.testsuite.TestRunner.Status
 
+/*You need to provide the request step name(s) that you wanted to log*/
+
+def testStepNames = ['Test Request1', 'Test Request2']
+
 def logRawData = { stepName ->
 	def step = testRunner.testCase.getTestStepByName(stepName)
      def rawRequest = new String(step.testRequest.messageExchange.rawRequestData)
@@ -12,8 +16,5 @@ def logRawData = { stepName ->
 }
 
 if (testRunner.status == Status.FAILED) {
-//You need to provide the request step name and you can repeat the same 
-//statement with different step name in case of multiple steps for a test case
-  logRawData('Test Request1')
-  logRawData('Test Request2')
+  testStepNames.each { step -> logRawData(step) }
 }
