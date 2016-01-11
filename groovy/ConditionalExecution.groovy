@@ -45,6 +45,7 @@ class ConditionEvaluator {
         responseCodes["0000"] =  new ResponseCodes(code: "0000", description: "Success")
         responseCodes["0058"] =  new ResponseCodes(code: "0058", description: "Profile Already Exist.", isNextStepToBeExecuted: false)
         responseCodes["5002"] =  new ResponseCodes(code: "5002", description: "Invalid Request: [JSV0007] Invalid string: '' does not match pattern '^d{1,5}\\\$'.", isNextStepToBeExecuted: true)
+        //add here if there are more response codes
     }
 
     TestCaseRunContext context
