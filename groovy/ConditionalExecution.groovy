@@ -107,7 +107,7 @@ def setHttpHeaders(String nextStepName, def headers) {
 def previousStepName = context.testCase.getTestStepAt(context.currentStepIndex - 1).name
 def nextStepName = context.testCase.getTestStepAt(context.currentStepIndex + 1).name
 def exitStepName = context.testCase.getPropertyValue('EXIT_STEP_NAME')
-def conditionalEvaluation = new ConditionEvaluator(context: context, testRunner: testRunner, log:log)
+def conditionalEvaluation = new ConditionEvaluator(context: context, log:log)
 def isNextStepExecute = conditionalEvaluation.parseAndEvaluateResponse(context.expand('${'+previousStepName+'#Response}'), 'ACCESS_TOKEN')
 /**
  * Assuming you need to set the access token as http header for next request.
