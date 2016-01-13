@@ -10,3 +10,7 @@ def setHttpHeaders(String stepName, def headers) {
     }
     nextRequest.requestHeaders = existingHeaders
 }
+
+//calling the above method
+def headers = ['header1': ['header1 value'], 'header2': ['header2 value']]
+setHttpHeaders('REST Request', headers)
