@@ -1,4 +1,4 @@
-//This script asstion reads the http response, 
+//This script assertion reads the http response, 
 //collect the cookies for the next http request
 //Provide the next step name where you want to set the Cookie to the request or
 //Use property expansion for below
