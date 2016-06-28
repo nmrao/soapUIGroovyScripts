@@ -46,7 +46,8 @@ def buildChargeDataStructure = { charge ->
 		def elementName = it.name()
 		def elementText = it.value().join()
 		chargeDataStructure[elementName] = elementText
-		headers << elementName
+		//Add to headers list if not already added
+		(elementName in headers) ?: headers << elementName
 	}
 	chargeDataStructure
 }
