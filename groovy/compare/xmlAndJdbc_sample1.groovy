@@ -60,10 +60,6 @@ getDetails = { data, recordElement, id, name ->
  new XmlSlurper().parseText(data).'**'.findAll{it.name() == recordElement && !it."$id".isEmpty()  }.inject([:]){map,item -> map[item."$id".text()] = item."$name".text();map}.sort()
 }
 
-//def items = new XmlSlurper().parseText(xmlResponse).'**'.findAll{it.name() == 'item' && !it.category_id.isEmpty()  }.inject([:]){map,item -> map[item.category_id.text()] = item.category_name.text();map}.sort()
-//println items
-//category_id
-
 def soap = getDetails(xmlResponse, 'item', 'category_id', 'category_name')
 log.info soap
 def jdbc = getDetails(jdbcResponse, 'Row', 'CATEGORY.CAT_ID', 'CATEGORY.CAT_NAME')
