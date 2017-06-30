@@ -1,5 +1,5 @@
 /**
-* Refer:
+* Refer:https://community.smartbear.com/t5/SoapUI-NG/Assertions-to-verify-items-are-being-returned-in-alphabetical/m-p/145218#M32959
 * this is to handle multiple properties
 **/
 
