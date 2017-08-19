@@ -1,6 +1,7 @@
 /**
 * This is SubmitListener.beforeSubmit type
 * Adds user header dynamically without losing other existing headers
+* Refer : https://community.smartbear.com/t5/SoapUI-Pro/Adding-a-request-Header-in-all-rest-request-in-different-Suites/m-p/148177#M33754
 **/
 
 import com.eviware.soapui.impl.wsdl.teststeps.WsdlTestRequestStep
