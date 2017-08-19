@@ -6,13 +6,24 @@
 
 import com.eviware.soapui.impl.wsdl.teststeps.WsdlTestRequestStep
 import com.eviware.soapui.impl.wsdl.teststeps.RestTestRequestStep
-def testStep = context.wsdlRequest.testStep
+
+/** Edit below as needed **/
 //Add more headers as needed
 //Below adds Authorization header
 def userHeaders = ['Authorization': [context.expand('${#Project#token}')]]
+
+//Define the possible test step types into below list
+def stepTypes = [WsdlTestRequestStep, RestTestRequestStep]
+
+/**  Do not Edit beyond this **/
+//Get the current running step
+def testStep = context.wsdlRequest.testStep
+
 //Total headers : user header + existing headers
 def headers =  userHeaders +  testStep.testRequest.requestHeaders
-if( testStep instanceof WsdlTestRequestStep || testStep instanceof RestTestRequestStep  ) {
-      log.info("Setting HTTP headers $headers in test case ${testStep.testCase.label}, step ${testStep.name} ")
-      testStep.testRequest.requestHeaders = headers
+
+//Add the user headers for the defined step types only
+if( stepTypes.any{testStep in it}  ) {
+     log.info("Setting HTTP headers $headers in test case ${testStep.testCase.label}, step ${testStep.name} ")
+     testStep.testRequest.requestHeaders = headers
 }
