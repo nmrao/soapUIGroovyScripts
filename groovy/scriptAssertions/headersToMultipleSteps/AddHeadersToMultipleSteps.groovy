@@ -17,11 +17,10 @@ def setHttpHeaders(def step, def headers) {
     nextRequest.requestHeaders = existingHeaders
 }
 
+def stepTypes = [WsdlTestRequestStep, RestTestRequestStep, HttpTestRequestStep]
 //calling the above method
 testCase.testStepList.each { step ->
-	if (step instanceof WsdlTestRequestStep 
-				|| step instanceof RestTestRequestStep
-				|| step instanceof HttpTestRequestStep) {
+	if (stepTypes.any{step in it}) {
 		setHttpHeaders(step, headers)
 	}
 }
