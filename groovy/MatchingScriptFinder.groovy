@@ -15,13 +15,9 @@ def key = 'db query'
  **/
 def stepTypes = [WsdlGroovyScriptTestStep]
 def project = context.testCase.testSuite.project
-def currentStepMap = [
-	suite : context.testCase.testSuite.name, 
-	kase  : context.testCase.name,
-	step  : context.currentStep.name
-]
+def currentStepMap = [ suite : context.testCase.testSuite.name, case  : context.testCase.name, step  : context.currentStep.name ]
 def logMatchingScript = { suite, kase, step ->  
-	def tempMap = [suite : suite.name, kase : kase.name, step: step.name]	
+	def tempMap = [suite : suite.name, case : kase.name, step: step.name]	
 	def result = currentStepMap != tempMap ? true : false
 	if (result &&(stepTypes.any{step in it}) && (step?.script?.contains(key)) ) {
 		log.info "Matching details: $tempMap"
