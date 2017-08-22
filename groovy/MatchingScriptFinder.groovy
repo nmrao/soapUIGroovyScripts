@@ -24,7 +24,7 @@ def logMatchingScript = { suite, kase, step ->
 	def tempMap = [suite : suite.name, kase : kase.name, step: step.name]	
 	def result = currentStepMap != tempMap ? true : false
 	if (result &&(stepTypes.any{step in it}) && (step?.script?.contains(key)) ) {
-		log.info "Matching details: ${suite.name} - ${kase.name} - ${step.name}"
+		log.info "Matching details: $tempMap"
 	}
 }
 
