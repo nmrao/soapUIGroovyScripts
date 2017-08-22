@@ -3,8 +3,6 @@
  * the details of groovy script test step 
  * which has certain string defined by the user
  * in the variable "key"
- * 
- * Ref: https://community.smartbear.com/t5/SoapUI-Open-Source/how-to-fetch-all-the-TC-name-and-test-step-names-that-have-db/m-p/148309#M24957
  **/
 import com.eviware.soapui.impl.wsdl.teststeps.WsdlGroovyScriptTestStep
 //Define the string to be searched for in a script
@@ -16,11 +14,12 @@ def key = 'db query'
 def stepTypes = [WsdlGroovyScriptTestStep]
 def project = context.testCase.testSuite.project
 def currentStepMap = [ suite : context.testCase.testSuite.name, case  : context.testCase.name, step  : context.currentStep.name ]
+def msg = new StringBuffer()
 def logMatchingScript = { suite, kase, step ->  
 	def tempMap = [suite : suite.name, case : kase.name, step: step.name]	
 	def result = currentStepMap != tempMap ? true : false
 	if (result &&(stepTypes.any{step in it}) && (step?.script?.contains(key)) ) {
-		log.info "Matching details: $tempMap"
+		msg.append(tempMap.toString())
 	}
 }
 
@@ -31,4 +30,8 @@ project.testSuiteList.each { suite ->
 		}
 	}	
 }
-log.info 'done'
+if (msg.toString()) {
+	log.info "Matching details: ${msg.toString()}"
+} else {
+	log.info "No matching steps"
+}
