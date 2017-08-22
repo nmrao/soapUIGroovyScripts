@@ -8,7 +8,7 @@
  **/
 import com.eviware.soapui.impl.wsdl.teststeps.WsdlGroovyScriptTestStep
 //Define the string to be searched for in a script
-def key = 'ORDERID'
+def key = 'db query'
 
 /**
  * Don't edit beyond this point
