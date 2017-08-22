@@ -3,6 +3,7 @@
  * the details of groovy script test step 
  * which has certain string defined by the user
  * in the variable "key"
+ * Ref : https://community.smartbear.com/t5/SoapUI-Open-Source/how-to-fetch-all-the-TC-name-and-test-step-names-that-have-db/m-p/148309/highlight/false#M24957
  **/
 import com.eviware.soapui.impl.wsdl.teststeps.WsdlGroovyScriptTestStep
 //Define the string to be searched for in a script
