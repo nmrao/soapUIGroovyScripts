@@ -36,9 +36,9 @@ def createRequest = {
                 ns.UserRequest(type: type) {
                     ns1.name(name)
                     ns1.age(age)
-                    //add education element irrespective of data
+                    //add education element irrespective of data - element is mandatory in schema
                     ns1.education(education)
-                    //add address only if there is data
+                    //add address only if there is data - element is optional in schema
                     if (!"$address") {
                         ns1.address(address)
                     }
