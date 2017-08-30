@@ -46,7 +46,7 @@ def createRequest = {
    }
   }
  }
-
  XmlUtil.serialize(soapRequest)
 }
+
 println createRequest()
