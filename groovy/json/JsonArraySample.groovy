@@ -4,6 +4,6 @@
 *  Also see the demo : https://ideone.com/Z3wyfh
 **/
 
-def json = new groovy.json.JsonSlurper().parseText(jsonString)
+def json = new groovy.json.JsonSlurper().parseText(context.response)
 log.info "Total members: ${json.Data.size()}"
 log.info "Meber names: ${json.Data.collect{it.MemberName}}"
