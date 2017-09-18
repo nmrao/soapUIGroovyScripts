@@ -17,7 +17,7 @@ def getMaxDateOfId = { id -> docs.findAll { it.Name.@id.text() == id && it.DateO
 }
 
 def map = (docs.collect{it.Name.@id.text()} as Set).collectEntries{ id -> [(id as Integer): getMaxDateOfId(id)] }
-.sort{it.key}
-.findAll{it.value}
+.sort { it.key }
+.findAll { it.value }
 
 map.collect { log.info "Max date of issuance for ${it.key} is ${it.value}" }
