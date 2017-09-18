@@ -4,5 +4,5 @@
 * Demo : https://ideone.com/FGSawS
 def xml = new XmlSlurper().parseText(context.response)
 def members = xml.'**'.findAll{it.name() == 'e'}
-log.info members.size()
-log.info members.collect{it.MemberName}
+log.info "Total members: ${members.size()}"
+log.info "Meber names: ${members.collect{it.MemberName} }"
