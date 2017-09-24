@@ -1,0 +1,40 @@
+Working with XAPATH in SOAPUI
+
+Sample XML:
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sam="http://www.example.org/sample/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sam:loginResponse>
+         <sessionid>10873286937963711</sessionid>
+      </sam:loginResponse>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+1.To check Xpath: Matching Digits Pattren
+    dedclare namsespace ns='http://www.example.org/sample/'
+    matches(//ns:loginResponse[1]/sessionid[1]/text(),'.\d')
+    
+2.To Check Xpath: Exitence of Path:
+    dedclare namsespace ns='http://www.example.org/sample/'
+    exists(//ns:loginResponse/sessionid)
+    
+3. Xpath:Couting elements:
+    dedclare namsespace ns='http://www.example.org/sample/'
+    count(//ns:loginResponse/sessionid)
+    
+4.Xpath: Getting text of element
+    dedclare namsespace ns='http://www.example.org/sample/'
+    //ns:Response[1]/ns:status[1]
+    //ns:Response[1]/*:status[1]
+    //*:Response[1]/*:status[1]
+    //*:Response[1]/*:status
+    //*:Response/*:status[1]
+    //*:Response/*:status
+   All above combinations are correct
+   
+5. While Writing Property Expansion Using XPATH:
+    def response = context.expand( '${Get_Campaigns#Response#$[\'dataObj\'][0][\'campaign_state\']}' )
+    $[\'dataObj\'][0][\'campaign_state\']
+
+6 While Writing JSON Path : 
+    $['dataObj'][0]['campaign_id']
