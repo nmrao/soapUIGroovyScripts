@@ -1,0 +1,85 @@
+Writing Assertion Results into File and Customized Test Resport
+
+
+def testStepStatus="passed";
+String testStepName;
+def errorsList=[];
+def suucessList=[];
+def tHost = context.expand( '${#TestCase#tHost}' )
+def numbertoDial = context.expand( '${#TestCase#numbertoDial}' )
+
+def assertionsList = testRunner.testCase.getTestStepByName("GetTMOLogsAndAssert").getAssertionList();
+int errIndex=0;
+int succIndex=0;
+for(def assertion:assertionsList){
+	String actStatus=assertion.status;
+	log.info assertion.status;
+	if(actStatus.equals("FAILED")){
+		testStepStatus="failed";
+		errIndex++;
+		errorsList.add(assertion)
+		//errorsList.add("Failed Asserion - "+errIndex+" "+assertion.getErrors()[0])
+		log.info assertion.getErrors()[0];
+	}
+	else{succIndex++;
+		suucessList.add(assertion);
+	}
+}
+log.info "errorsList : $errorsList"
+log.info "suucessList : $suucessList"
+String isRequired2StoreLogs = context.expand( '${#Project#isRequired2StoreLogs}' ).toString();
+isRequired2StoreLogs=isRequired2StoreLogs.toLowerCase();
+
+if(isRequired2StoreLogs.equals("yes")||isRequired2StoreLogs.equals("true")){
+	def tLogResponse = context.expand( '${GetTMOLogsAndAssert#Response}' )
+	def currentCarName = context.expand( '${#TestCase#currentCarName}' );
+	def sessionID = context.expand( '${#TestCase#sessionID}' )
+	def currentDate = context.expand( '${#TestCase#currentDate}' )
+	def currentHours = context.expand( '${#TestCase#currentHours}' )
+	currentCarName=currentCarName.toLowerCase();
+	//def tHost = context.expand( '${#TestCase#tHost}' )
+	def retryCount = context.expand( '${#TestCase#retryCount}' )
+	def logFilePath=testRunner.testCase.getPropertyValue("logsFolderPath");
+	//context.getProperty("logsFolderPath");
+	def logFileName=tHost+"_"+currentCarName+"_log_"+testStepStatus+"_"+retryCount+".txt"
+	def logFilePath2=logFilePath+"\\"+logFileName;
+	def tLogFile = new File(logFilePath2) ;
+	log.info "----->> tmologFilePath: "+tLogFile
+	tLogFile<<"\n\n<<----------------------------------Test Result Summary------------------------------>>>>\n";
+	tLogFile<<"\nTMO Under Test: $tHost\n";
+	tLogFile<<"\nCarrier Under Test: $currentCarName\n";
+	tLogFile<<"\nFinal Test Result: $testStepStatus\n";
+	tLogFile<<"\nNumber Dialed: $numbertoDial\n";
+	tLogFile<<"\nCall Session ID: $sessionID\n";
+	tLogFile<<"\nCall Log Seach Date:$currentDate &&  Hours : $currentHours\n";
+	targetLogFile<<"\nTotal Assertions Count: "+assertionsList.size()+"\n";
+	targetLogFile<<"\nPASSED Assertions Count: "+suucessList.size()+"   FAILED Assertions Count: "+errorsList.size()+"\n";
+
+	if(suucessList.size()>0){
+		tLogFile<<"\n*********Detailed PASSED Assertion Information*********\n";	
+		index=0;
+		suucessList.each{
+			index++;
+			def passedAssertion=it;
+			def passedAssertionLabel=passedAssertion.getLabel(); 
+			def assertionMsg=passedAssertion.getStatus();
+			targetLogFile<<"      $index . $passedAssertionLabel  $assertionMsg\n";
+			}
+		}
+
+	if(errorsList.size()>0){
+			tLogFile<<"\n*********Detailed FAILED Assertion Information*********\n";	
+			index=0;
+			errorsList.each{
+				index++;
+				def failedAssertion=it;
+				def faieldAssertionLabel=failedAssertion.getLabel();
+				def assertionErros=failedAssertion.getErrors()[0];
+				targetLogFile<<"  $index . $faieldAssertionLabel: $assertionErros  \n";
+			}
+	}
+	
+	targetLogFile<<"<<----------------------------------Test Result Summary------------------------------>>>>\n\n\n";
+	targetLogFile<<"Detailed Log below for Review:\n\n";
+	targetLogFile<<tLogResponse;
+}
