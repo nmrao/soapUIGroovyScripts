@@ -1,0 +1,26 @@
+Adding HTTP POST Request Via Groovy in SOAPUI
+
+import static com.eviware.soapui.impl.wsdl.teststeps.registry.HttpRequestStepFactory.HTTPREQUEST_TYPE 
+//Provide the http request endpoint in the below
+def endpoint = 'http://google.com'
+//Valid http method GET | PUT | POST | DELETE etc
+def method = 'POST'
+def stepName = 'httpRequestStep4'
+def tc=testRunner.testCase
+//Adds http request step to given test case assumes tc is valid object of TestCase
+tc.addTestStep(HTTPREQUEST_TYPE , stepName, endpoint, method)
+
+//Setting Post Body
+def request = context.testCase.getTestStepByName(stepName).getTestRequest()
+def jsonText = '''{
+  "id" : "sample id",
+  "name" : "sample name",
+  "tags" : [ "sample tags" ],
+  "address" : {
+    "street" : "sample street",
+    "zipcode" : "sample zipcode",
+    "city" : "sample city"
+  }
+}'''
+context.testCase.getTestStepByName(stepName).testRequest.setMediaType('application/json123')
+request.setRequestContent(jsonText)
