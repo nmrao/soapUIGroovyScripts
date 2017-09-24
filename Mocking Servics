@@ -1,0 +1,13 @@
+Mocking Servics
+
+//Setting mock request headers
+  mockRequest.httpResponse.setHeader('MyHeader', "HiThere;")
+  mockRequest.httpResponse.setContentLength(456)
+  mockRequest.httpResponse.sendError(404)
+
+//Setting response properties
+  def resp = mockOperation.getMockResponseByName('MyResponse')
+  resp.setResponseHttpStatus(202)
+  return 'MyResponse'
+  
+    References:https://www.soapui.org/rest-testing-mocking/rest-mock-service-creation/rest-mock-from-service.html
