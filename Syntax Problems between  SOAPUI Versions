@@ -1,0 +1,8 @@
+Syntax Problems between  SOAPUI Versions 
+
+Apparently soapUI 5.x is a bit more strickt in its syntax checks than 4.x. Or it is a bug in 4.x.
+
+http://some_server/basemap/{param0}/{param1}/{param0}_{param1}_16.png worked in 4.x it did not in 5.x. 
+
+However after changing this url into http://some_server/basemap/${param0}/${param1}/${param0}_${param1}_16.png everything worked again.
+
