@@ -1,0 +1,20 @@
+Experiment
+
+Create a three test suites 
+
+  Each tetestSuite with three testcases:
+
+  Each Test Cases must have three groovy steps
+  
+  Each Step has one string "I am in Step{1/2/3}"
+   
+Test Following 
+    testRunner.cancel(arg0)
+    testRunner.fail(arg0)
+    testRunner.results
+    testRunner.status
+    testRunner.getReason()
+    testRunner.isRunning()
+    testRunner.gotoStep(arg0)
+    testRunner.gotoStepByName(arg0)
+    testRunner.runTestStepByName(arg0)
