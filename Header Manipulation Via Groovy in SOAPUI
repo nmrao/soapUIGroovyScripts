@@ -1,0 +1,4 @@
+Header Manipulation Via Groovy in SOAPUI
+
+#Getting Cookie Header from Headers:
+def headerValue = testRunner.testCase.getTestStepByName("LoginOperation").httpRequest.response.responseHeaders["Set-Cookie"][1]
