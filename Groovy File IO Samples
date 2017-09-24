@@ -1,0 +1,27 @@
+File IO in Groovy
+
+File file = new File("E:/Example.txt") 
+
+//Reading Files
+
+1.Reading File content as a String
+    log.info file.text
+
+2. Reading File content line by line
+   file.eachLine{
+      log.info it;
+   }
+   
+3.Reading File lines in to a string
+  def list = file.collect {it}
+
+//Writing to file
+1.  file.withWriter('utf-8') { writer ->
+    	writer.writeLine 'Into the ancient pond'
+    	writer.writeLine 'A frog jumps'
+    	writer.writeLine 'Water’s sound!'
+   }
+   
+2.  file<< '''Into the ancient pond
+		A frog jumps
+	   Water’s sound!'
