@@ -1,0 +1,14 @@
+Running Multiple Test Projects via Batch file from Command Line Using testRunner
+
+@echo off
+set SOAPUI_HOME=C:\DevTools\soapui\SoapUI-Pro-5.0.0
+call %SOAPUI_HOME%\bin\testrunner.bat -sUnitTesting -f Project1-soapui-project.xml
+call %SOAPUI_HOME%\bin\testrunner.bat -sUnitTesting2 -f Project1-soapui-project.xml
+call %SOAPUI_HOME%\bin\testrunner.bat -sotherTests -f Project2-soapui-project.xml
+call %SOAPUI_HOME%\bin\testrunner.bat -sotherTests2 -f Project2-soapui-project.xml
+
+@echo off
+set SOAPUI_HOME=C:\Program Files\SmartBear\ReadyAPI-1.3.1
+call %SOAPUI_HOME%\bin\testrunner.bat -a -FPDF -f Project1-soapui-project.xml -e 
+call %SOAPUI_HOME%\bin\testrunner.bat -a -FPDF -f Project1-soapui-project.xml -e 
+call %SOAPUI_HOME%\bin\testrunner.bat -a -FPDF -f Project2-soapui-project.xml -e
