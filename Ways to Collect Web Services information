@@ -1,0 +1,6 @@
+Ways to Collect Web Services information 
+
+Exploring capabilities of Service:
+    1. without access to source code, 
+    2. By reading documentation API Spcification Documnets
+    3. through network traffic inspection Using Proxy ,Using Developper Tools
