@@ -1,0 +1,6 @@
+Implementing a way to exit from test execution loop
+
+Different ways to exit the test execution:
+    1.Creating  one second delay step in the end of test case and jumping to that step by using testRunner.gotoStepByName();
+    2.Creating  one dummy groovy step in the end of test case and jumping to that step by using testRunner.gotoStepByName();
+    3.Using testRunner.Cancel
