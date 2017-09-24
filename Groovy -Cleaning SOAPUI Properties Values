@@ -1,0 +1,31 @@
+Groovy -Cleaning SOAPUI Properties Values
+
+#Clean All Project Level Properties
+def projectProperties=testRunner.testCase.testSuite.project.getPropertyNames();
+def project=testRunner.testCase.testSuite.project;
+projectProperties.each{ propName ->
+    log.info "remove prop: $propName"
+    if(!propName.equals("env")){
+    		project.setPropertyValue(propName,'')
+    }
+}
+
+#Clean All TestSuite Level Properties
+def tsProperties=testRunner.testCase.testSuite.getPropertyNames();
+def ts=testRunner.testCase.testSuite;
+tsProperties.each{ propName ->
+    log.info "remove prop: $propName"
+    if(!propName.equals("env")){
+    		ts.setPropertyValue(propName,'')
+    }
+}
+
+#Clean All TestCase Level Properties
+def tcProperties=testRunner.testCase.getPropertyNames();
+def tc=testRunner.testCase;
+tcProperties.each{ propName ->
+    log.info "remove prop: $propName"
+    if(!propName.equals("env")){
+    		tc.setPropertyValue(propName,'')
+    }
+}
