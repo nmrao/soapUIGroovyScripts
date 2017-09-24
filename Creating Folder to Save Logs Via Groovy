@@ -1,0 +1,22 @@
+Creating Folder to Save Logs Via Groovy
+
+//Generate Time STamp String
+import java.text.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+ 
+SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
+Date now = new Date();
+String dateString = sdfDate.format(now);
+testRunner.testCase.testSuite.project.setPropertyValue( "dateString", dateString)
+log.info dateString
+//Determine the Project file Path
+def groovyUtils=new  com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+log.info projectPath
+//Construct Directory Name
+String execLogsDirPath= projectPath+"\\"+"ExecutionLogs"+"\\"+dateString
+File dir=new File(execLogsDirPath);
+dir.mkdirs();
+testRunner.testCase.setPropertyValue( "execLogsDirPath", execLogsDirPath)
+String logMsg="Setting Audit logs @Path: "+execLogsDirPath
