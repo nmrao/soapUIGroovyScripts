@@ -1,0 +1,14 @@
+Date and Time Stamp String Generation In Groovy
+
+#Date Time Stamp:
+  
+		import java.text.*;
+		SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy_MM_dd_HHmmss");
+		SimpleDateFormat startDate = new SimpleDateFormat("MM/dd/yyyy");
+		Date now = new Date();
+		String strDate = sdfDate.format(now);
+		Date date = new Date();
+		String startDate1 = startDate.format (date)
+		Date prevDay = new Date()-1;
+		String preday = startDate.format (prevDay)
+		testRunner.getTestCase().setPropertyValue("TC_TimeStamp", strDate);
