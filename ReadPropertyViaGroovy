@@ -1,0 +1,3 @@
+Read Property Via Groovy:
+We can use set to read  existing  property:
+            def testCaseProperty = testRunner.testCase.getPropertyValue("myTest");
