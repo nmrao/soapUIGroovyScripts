@@ -1,0 +1,24 @@
+SOAPUI -Running Specific Step in another Test Suite
+
+import com.eviware.soapui.model.testsuite.TestRunner.Status
+
+Running Specific Step in another Test Suite
+def project = testRunner.testCase.testSuite.project
+testRunner.runTestStep( project.testSuites['TESTSUITE1'].testCases['TESTCASE1'].testSteps['TESTSTEP6'] )
+testRunner.runTestStep( project.testSuites['TESTSUITE1'].testCases['TESTCASE2'].testSteps['TESTSTEP8'] )
+
+// get TestCase 
+	def tc = testRunner.testCase.testSuite.project.testSuites["Sample Simple TestSuite"].testCases["TestCase Name"]
+
+// set login properties 
+	tc.setPropertyValue("Username", "ole" ) 
+	tc.setPropertyValue("Password", "nomoresecrets" )
+
+// run test synchrouously 
+// show that it worked out ok 
+	log.info "Status: $runner.status, time taken for TestCase was: $runner.timeTaken ms"
+	def runner = tc.run( null, false )
+// assert that it didn't fail 
+	assert runner.status != Status.FAILED : runner.reason
+
+https://www.soapui.org/functional-testing/modularizing-your-tests.html
