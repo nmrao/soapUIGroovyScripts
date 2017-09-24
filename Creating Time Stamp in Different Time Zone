@@ -1,0 +1,17 @@
+Creating Time Stamp in Different Time Zone
+
+import java.text.SimpleDateFormat;
+TimeZone zone = TimeZone.getTimeZone("America/New_York");
+SimpleDateFormat hoursFormat = new SimpleDateFormat("HH");
+SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+hoursFormat.setTimeZone(zone);
+dateFormat.setTimeZone(zone);
+String currentHours=hoursFormat.format(new Date());
+String currentDate=dateFormat.format(new Date());
+
+testRunner.testCase.setPropertyValue("currentHours",currentHours);
+testRunner.testCase.setPropertyValue("currentDate",currentDate);
+log.info ("""----------->>>>>Current Time Hours $currentHours
+		   ----------->>>>>Current Date $currentDate""");
+       
+//Output :INFO:----------->>>>>Current Time Hours 23   ----------->>>>>Current Date 2017-06-16
