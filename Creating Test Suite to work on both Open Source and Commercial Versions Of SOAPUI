@@ -1,0 +1,9 @@
+Creating Test Suite to work on both Open Source and Commercial Versions Of SOAPUI
+
+Dont Use Enviornments:                  Use Groovy +Peroperties Step Combination
+Dont Use Envents:                       Manually Add headers like cookies to each step
+Dont Use Data Source Step for Looping:  Use Goovy Looping logic
+
+So what you need to know:
+You must be good or intermediate level coding skills in groovy
+You must be familier with SOAPUI API and Its Methods to use.
