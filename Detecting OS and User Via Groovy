@@ -1,0 +1,15 @@
+//1.Getting OS Name of The Machine
+      String osName = System.getProperty( "os.name" ).toLowerCase();
+      log.info osName
+
+
+//2.Following Snippet will give System User Name
+      def userName=System.getProperty("user.name")
+      log.info userName
+
+
+//3.OS Specific File Seperator:
+    String seperator = File.separator
+    log.info seperator
+      //File.separator = /    for Unix
+      //File.separator = \    for Windows
