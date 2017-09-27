@@ -1,0 +1,13 @@
+Suppose If Log in Response Equal to:
+    HTTP/1.1 200 OK
+    Server: Apache-Tomcat/1.2
+    Set-Cookie: JSESSIONID=12121323232332321321321321; Path=/sdsdsdsdsdsdsdsdsds/
+    Content-Length: 1567
+    Date: Wed, 27 Sep 2017 18:07:58 GMT
+
+
+def cookie = testRunner.testCase.getTestStepByName("LoginStep").httpRequest.response.responseHeaders["Set-Cookie"][0];
+// then cookie=JSESSIONID=12121323232332321321321321; Path=/sdsdsdsdsdsdsdsdsds/
+testRunner.testCase.setPropertyValue("cookie", cookie);
+
+
