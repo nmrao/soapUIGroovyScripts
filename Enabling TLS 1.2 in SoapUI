@@ -1,0 +1,29 @@
+By Default SOAPUI Will not be enabled TLS 1.2
+
+This requires to be added : SoapUI-5.3.0.vmoptions file
+
+Path: C:\Program Files (x86)\SmartBear\SoapUI-5.3.0\bin\SoapUI-5.3.0.vmoptions
+
+      -XX:MinHeapFreeRatio=20
+      -XX:MaxHeapFreeRatio=40
+      -Xms128m
+      -Xmx1000m
+      -Dsoapui.properties=soapui.properties
+      -Dsoapui.home=C:\Program Files (x86)\SmartBear\SoapUI-5.3.0/bin
+      -Dsoapui.ext.libraries=C:\Program Files (x86)\SmartBear\SoapUI-5.3.0/bin/ext
+      -Dsoapui.ext.listeners=C:\Program Files (x86)\SmartBear\SoapUI-5.3.0/bin/listeners
+      -Dsoapui.ext.actions=C:\Program Files (x86)\SmartBear\SoapUI-5.3.0/bin/actions
+      -Dwsi.dir=C:\Program Files (x86)\SmartBear\SoapUI-5.3.0/wsi-test-tools
+      -Djava.library.path=C:\Program Files (x86)\SmartBear\SoapUI-5.3.0/bin
+      -Djava.util.Arrays.useLegacyMergeSort=true
+      -Dsoapui.https.protocols=SSLv3,TLSv1.2
+
+
+      -Dsun.net.http.allowRestrictedHeaders=true
+      -agentlib:jdwp=transport=dt_socket,address=53677,suspend=n,server=y
+      -splash:SoapUI-Spashscreen.png
+
+
+What happens if Server requires TLs1.2 and SOAPUI is not Suporting for that:
+
+ javax.net.ssl.SSLHandshakeException: Received fatal alert: handshake_failure no 
