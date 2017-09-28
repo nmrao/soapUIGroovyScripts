@@ -1,0 +1,41 @@
+SOAPUI Pro allows to Manage Test Data for Multiple Enviornments
+
+For eaxmple ,it is very common that same API (application) might deployed on multiple environments like:
+    1. Dev Server 
+    2. QA Server
+    3. Staging Server
+    4. Production -1 Server
+    5. Production -2 Server
+ 
+ By default SOAPUI OS will not help us to Manage Test Data for Multiple Enviornments.
+ 
+ But it is possible to implement Similar to that for SOAPUI Opensource Version.
+ 
+ All you need to know little groovy scripting
+  
+ Since it is same application API calls will be same but the data will be different.
+ 
+ Hint:
+ 1. Define a 'env' Property @ Project elevel
+            by just changing this property test suite can be switched to eny environment.
+ 2. Create a Test Case exclusively to hold propertys of each enviornment
+ 3. Create a property step for each environemnt
+      Like: 
+         Project
+            TestSuite
+              TestCase
+                Property Step-DevServer
+                Property Step-QAServer
+                Property Step-StgServer
+                    Now create property Names Like(In all above properties):
+                                endPoint/Host      //Remember this will be different for each Environemnt
+                                UserName
+                                Password
+              Groovy Step to Load Specific Properties to Project Level Properties:
+ 4. Make sure resmaining Test Cases are refferrning the Project level properties                 
+ 5. Refer example Test Suite @      
+     
+            
+   
+            
+ 
