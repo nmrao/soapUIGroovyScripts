@@ -1,0 +1,17 @@
+We commonly Use Following collections in Scripting:
+  
+  ArrayList : Maintains insertion order
+  
+  HashMap   : class offers constant time performance for the basic operations (add, remove, contains and size)
+  
+  Treemap   : Keys will be sorted
+  
+  Hashset   : No Duplicates
+              Does not guarantee that the order of elements will remain constant over time
+              
+  TreeSet   : No Duplicates, Tree Set elements are sorted in ascending order by default
+  
+  
+  
+  Good references:
+  https://stackoverflow.com/questions/1463284/hashset-vs-treeset
