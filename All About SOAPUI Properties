@@ -1,0 +1,76 @@
+All About SOAPUI Properties::
+
+Property is Key Value Pair.
+In Test Step we can use the key(Variable Name)
+
+Properties allows to Supply:
+	Input Data/Initial Configuration Date
+	To Store Runtime Properties
+	To solve correlation problem.
+	
+Types of Properties:
+	User Defined /Custom Properties
+	ReadOnly Properties
+
+Becareful:
+	If test case running in a loop, Properties Must be Cleared once interation is over.
+
+	
+Properties are organised in following levels:
+	Test Step
+	Test Case
+	Test Suite
+	Project(Per Environement)
+	Work Space
+	Global
+
+Way to Set Properties: 
+    testRunner.testCase.setPropertyValue("key","value");
+	testRunner.testCase.testSuite.setPropertyValue("key","value");
+	testRunner.testCase.testSuite.property.setPropertyValue("key","value");
+	com.eviware.soapui.model.propertyexpansion.PropertyExpansionUtils.globalProperties.setPropertyValue('key', 'value')
+	
+Way to Get Properties:
+	def tcPropertyValue=testRunner.testCase.getPropertyValue("key");
+	def tspropertyValue=testRunner.testCase.testSuite.getPropertyValue("key");
+	def proPropertyValue=testRunner.testCase.testSuite.project.getPropertyValue("key");
+	
+Property Expansion in soapUI:
+	SOAPUI Provides a common syntax to dynamically insert ("expand") property values during processing
+	
+	${[scope]propertyName[#xpath-expression]}
+
+where scope can be one of the following literal values:
+	#Project# - references a Project property(Reference properties across a particular SoapUI project)
+	#TestSuite# - references a TestSuite property in the containing TestSuite
+	#TestCase# - references a TestCase property in the containing TestCase
+	#MockService# - references a MockService property in the containing MockService
+	#Global# - references a global property. Found in File>Preferences>Global Properties tab. Reference properties across all projects
+	#System# - references a system property. Found in Help>System properties.
+	#Env# - references an environment variable
+	[TestStep name]# - references a TestStep property
+	
+If no scope is specified, the property is resolved as follows:
+
+	Check the current context (for example the TestRunContext) for a property with the matching name
+	Check for a matching global property
+	Check for a matching system property
+
+	Property expansion further includes an XPath expression, 
+	this will be used to select the corresponding value from the referenced property value (which must contain XML):
+	
+	${Search Request#Response#//ns1:Item[1]/n1:Author[1]/text()}
+
+	def propertyValue = context.expand('${#Global#propertyKey}')
+	${Search Request#Response#//ns1:Item[1]/n1:Author[1]/text()}
+	
+	
+Dynamic Properties:
+	SOAPUI allows to write groovy scripts directly inside a PropertyExpansion
+	Prefix the content with a '=' and the remaining content up to the closing brace will be evaluated as a script and its result will be inserted.
+	
+	${=(int)(Math.random()*1000)}
+	${=import java.text.SimpleDateFormat ; new SimpleDateFormat("YYYY-MM-DDT00:00:00").format(new Date())}
+	${=request.name}
+	${=request.operation.interface.project.name}
+	
