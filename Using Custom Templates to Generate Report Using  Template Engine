@@ -12,3 +12,18 @@ def binding = [now: new Date(109, 11, 1), name: 'Hubert Klein Ikkink']
 
 def output = simple.createTemplate(source).make(binding).toString()
 log.info output
+
+
+Using Groovy Template
+
+import groovy.text.*
+def gstring = new GStringTemplateEngine()
+def gsource = '''Dear <%= name %>,
+	Text is created for 
+	<% if (gstring) 
+	out << 'GStringTemplateEngine' 
+	else 
+	out << 'other template engine'%>.'''
+def gbinding = [name: 'mrhaki', gstring: true]
+def goutput = gstring.createTemplate(gsource).make(gbinding).toString()
+ goutput
