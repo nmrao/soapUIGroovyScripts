@@ -1,0 +1,5 @@
+
+Use the following to get the status of the entire testcase. 
+  testRunner.status 
+      OR 
+  testRunner.getStatus()
