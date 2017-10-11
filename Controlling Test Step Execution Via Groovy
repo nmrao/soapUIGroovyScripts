@@ -1,0 +1,17 @@
+1. SOAPUI API's allows us to Control test execution control via groovy scripting.
+    
+    testRunner.gotoStepByName( "targetStepName")
+    testRunner.runTestStepByName( "targetStepName")
+    testRunner.cancel("Decribe Cancellation Reason")    "Simplay Stops an ongoing test run with the specified reason".
+    testRunner.fail("Decribe Failure Reason")           "Fails an ongoing test run with the specified reason".
+    testRunner.run()
+    
+     Running a Test Step:
+        def tCase = testRunner.testCase.testSuite.testCases["Name of test cases"]
+        def tStep = tCase.testSteps["test step you want to run"]
+        tStep.run(testRunner, context)
+     
+     If we want to Specific Step in another Test Suite:
+        def tCase = testRunner.testCase.testSuite.project.testSuites["test suite Name "].testCases["test case Name"]
+        def tStep = tCase.testSteps["test step you want to run"]
+        tStep.run(testRunner, context)
