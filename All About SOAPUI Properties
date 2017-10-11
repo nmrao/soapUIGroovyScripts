@@ -38,8 +38,6 @@ Way to Get Properties:
 Property Expansion in soapUI:
 	SOAPUI Provides a common syntax to dynamically insert ("expand") property values during processing
 	
-	${[scope]propertyName[#xpath-expression]}
-
 where scope can be one of the following literal values:
 	#Project# - references a Project property(Reference properties across a particular SoapUI project)
 	#TestSuite# - references a TestSuite property in the containing TestSuite
@@ -63,6 +61,15 @@ If no scope is specified, the property is resolved as follows:
 
 	def propertyValue = context.expand('${#Global#propertyKey}')
 	${Search Request#Response#//ns1:Item[1]/n1:Author[1]/text()}
+	
+	
+	${[scope]propertyName[#xpath-expression]}
+	Syntax: ${#Scope#Property-name[#xpath-expression]}
+	${Property-name} 		refers to a Global Property    (example: ${UserName} to a global Property named “UserName”)
+	${#Project#Property-name}	refers to a Project Property   (example: ${#Project#UserName} to a Property on Project level named “UserName”)
+	${#TestSuite#Property-name} 	refers to a TestSuite Property (example: ${#TestSuite#UserName} to a Prop on TestSuite level named “UserName”)
+	${#TestCase#Property-name} 	refers to a TestCase Property  (example: ${#TestCase#UserName} to a Prop on TestCase level named “UserName”)
+	${TestStep-name#Property-name} 	refers to a property in a named TestStep.
 	
 	
 Dynamic Properties:
