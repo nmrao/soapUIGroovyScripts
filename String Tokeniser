@@ -1,0 +1,17 @@
+		
+    import java.util.StringTokenizer;
+    
+    def str = "This is String , split by StringTokenizer, created by Rajendra";
+		def st = new StringTokenizer(str);
+
+		log.info("---- Split by space ------");
+		while (st.hasMoreElements()) {
+			log.info(st.nextElement());
+		}
+
+		log.info("---- Split by comma ',' ------");
+		def st2 = new StringTokenizer(str, ",");
+
+		while (st2.hasMoreElements()) {
+			log.info(st2.nextElement());
+		}
