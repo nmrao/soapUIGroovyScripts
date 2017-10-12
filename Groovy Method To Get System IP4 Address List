@@ -1,0 +1,34 @@
+Method Call
+getMachineIpStrList()
+
+
+//Actual Method
+def getMachineIpStrList(){
+	def ipList=[];
+	try {
+	    def ip;
+	    def interfaces = NetworkInterface.getNetworkInterfaces();
+	    while (interfaces.hasMoreElements()) {
+	       def iface = interfaces.nextElement();
+	        // if (iface.isLoopback() || !iface.isUp())--> filters out 127.0.0.1 and inactive interfaces
+	        if (!iface.isUp()){ // filters out inactive interfaces
+	            continue;
+	        }
+	       def addresses = iface.getInetAddresses();
+	        while(addresses.hasMoreElements()) {
+	            def addr = addresses.nextElement();
+	            if (addr instanceof Inet6Address) {
+	            	continue;
+	            }
+	            ip = addr.getHostAddress();
+	            log.info(ip);
+	            ipList.add(ip);
+	        }
+	    }
+	} catch (SocketException e) {
+	    throw new RuntimeException(e);
+	}
+	String strIpList=ipList.join(",");
+	log.info strIpList 
+	return strIpList
+}
