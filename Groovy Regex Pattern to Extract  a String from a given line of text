@@ -16,3 +16,18 @@ Solution:
       Collect IP Address Regex pattren
       Collect Mobile Number Regex Pattren
       Collect Creditcard Regex Pattren
+
+
+Pattern pattern;
+Matcher matcher;
+
+String EMAIL_PATTERN ="^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+
+public EmailValidator() {
+         	 pattern = Pattern.compile(EMAIL_PATTERN);
+	}
+
+public boolean validate(final String hex) {
+		matcher = pattern.matcher(hex);
+		return matcher.matches();
+	}
