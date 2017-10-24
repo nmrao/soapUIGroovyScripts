@@ -31,3 +31,44 @@ cURL
 CORS            Cross Origin Requests allow javascript in websites to do AJAX requests to domains beyond the one initiating the request.
 API Version
 Web Service
+
+
+SOAP            (Simple Object Access Protocol)
+UDDI            (Universal Description, Discovery and Integration)
+WSDL            (Web Services Description Language)
+
+Synchronous  Service 
+Asynchronous Service
+RPC             Remote Procedure Calls
+SOAP 1.1
+SOAP 1.2
+Web Service Cline
+Web Service Input Validation
+
+
+Data In Plan Text Format
+    ID:1
+    Name:Rajendra Prasad
+    Email:Rajendra.Prasad@gmail.com
+    Country:India
+
+Json Message Format:
+        {
+          "ID": "1",
+          "Name": "Rajendra Prasad",
+          "Email": "Rajendra.Prasad@gmail.com",
+          "Country": "India"
+        }
+        
+XML Message Format:
+        <Person>
+            <ID>1</ID>
+            <Name>Rajendra Prasad</Name>
+            <Email>Rajendra.Prasad@gmail.com</Email>
+            <Country>India</Country>
+        </Person>
+
+
+
+Request Format:
+https://www.yourmoodle.com/login/token.php?username=USERNAME&password=PASSWORD&service=SERVICESHORTNAME
