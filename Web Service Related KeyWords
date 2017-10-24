@@ -68,6 +68,25 @@ XML Message Format:
             <Country>India</Country>
         </Person>
 
+Headers:
+Headers Mandatory for Every Request/response:No
+But if some Data is Exchanging the following headers are mandatory:
+    Content-Length 
+    Transfer-Encoding
+    
+Request Headers:
+Accept:  
+    If specified in request then those types will be accepted in the response to this request
+            Accept: text/plain, text/ html
+            Accept: text/x-dvi; q=.8; mxb=100000; mxt=5.0, text/x-c
+            Accept:  *.*, q=0.1
+            Accept:  audio/*, q=0.2
+            Accept:  audio/basic q=1
+
+
+Browser Sniffers:
+    Chrome Plugin:
+        1.network Sniffer
 
 
 Request Format:
