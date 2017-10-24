@@ -1,0 +1,31 @@
+REST Service
+Resource:      An object or an entity that has a URI where it can be manipulated through HTTP requests.
+Request 
+Response
+
+SLA
+Data Formats :XML JSON  
+End Point
+Request Headers
+Request Body
+Request Headers
+Response Headers
+Request Parameters
+API Key
+Rate-Limiting
+API Autentication
+Session
+  Cookie
+      Set-Cookie
+HATEOAS:Hypermedia as the Engine of Application State 
+HTTP Protocol
+HTTP Methods
+Http Status Code
+Idempotent
+Mashup
+Parameter
+Property
+SOAP
+cURL
+CORS
+API Version
