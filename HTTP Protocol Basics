@@ -1,0 +1,40 @@
+Http Protocol versions
+  HTTP 1.0
+  HTTP 2.1
+
+
+Basic HTTP Method:
+  GET
+      200   OK
+      
+  POST
+      200   OK
+      201   Created
+      204   No Content
+  
+  PUT
+      200
+      202 Accpte
+      204 
+      
+  
+  DELETE
+  
+
+Maximum POST Body Size:
+Maximum Get Header Length:
+
+Http Request:
+
+Http Response:
+
+Http Status Codes
+
+Http Request Payload/Message Content Type:
+
+Http Content Types:
+
+Link Definition:
+A link can be viewed as a statement of the form "{context IRI} has a  {relation type} resource at {target IRI}, which has {target attributes}".
+The Link entity-header field provides a means for serialising one or more links in HTTP headers
+ 
