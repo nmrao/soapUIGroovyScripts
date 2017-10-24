@@ -20,14 +20,26 @@ Basic HTTP Method:
       202 Accpted
       204 No Content
       
-  
-
-Maximum POST Body Size:
-Maximum Get Header Length:
-
 Http Request:
+      Request URL:
+      Headers
+      Body
+      
 
 Http Response:
+      Response Content
+      Headers
+      Body
+
+Maximum POST Body Size:     Protocol never define sizes,it is left server settings that it can handle
+Maximum Get Header Length:  Protocol never define sizes,it is left server settings that it can handle
+
+Body Content:
+    XML
+    JSON
+    HTML
+
+
 
 Http Status Codes
       - 1xx: Informational - Request received, continuing process
