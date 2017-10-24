@@ -14,10 +14,11 @@ Request Parameters
 API Key
 Rate-Limiting
 API Autentication
+    Basic Auth
 Session
   Cookie
       Set-Cookie
-HATEOAS:Hypermedia as the Engine of Application State 
+HATEOAS:          Hypermedia as the Engine of Application State 
 HTTP Protocol
 HTTP Methods
 Http Status Code
@@ -27,5 +28,6 @@ Parameter
 Property
 SOAP
 cURL
-CORS
+CORS            Cross Origin Requests allow javascript in websites to do AJAX requests to domains beyond the one initiating the request.
 API Version
+Web Service
