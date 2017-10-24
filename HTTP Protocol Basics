@@ -13,12 +13,13 @@ Basic HTTP Method:
       204   No Content
   
   PUT
-      200
-      202 Accpte
-      204 
-      
+
   
   DELETE
+      200 Ok
+      202 Accpted
+      204 No Content
+      
   
 
 Maximum POST Body Size:
@@ -29,6 +30,11 @@ Http Request:
 Http Response:
 
 Http Status Codes
+      - 1xx: Informational - Request received, continuing process
+      - 2xx: Success - The action was successfully received,understood, and accepted
+      - 3xx: Redirection - Further action must be taken in order to complete the request
+      - 4xx: Client Error - The request contains bad syntax or cannot be fulfilled
+      - 5xx: Server Error - The server failed to fulfill an apparently valid request
 
 Http Request Payload/Message Content Type:
 
@@ -37,4 +43,8 @@ Http Content Types:
 Link Definition:
 A link can be viewed as a statement of the form "{context IRI} has a  {relation type} resource at {target IRI}, which has {target attributes}".
 The Link entity-header field provides a means for serialising one or more links in HTTP headers
+ 
+ References:
+    HTTP 1.1 RFC: https://tools.ietf.org/html/rfc2616#section-7
+  
  
