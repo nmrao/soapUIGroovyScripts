@@ -1,0 +1,33 @@
+Running SOAPUI Project From ANT and Generating Junit HTML Report:
+ 
+Tools required to Setup:
+1. SOAPUI Open Source Software
+2. Downdload Ant and Set Class Path
+      1. Set ANT_HOME
+      2. Ant and Set Class path
+3.Create a Sample SOAPUI Project or Use Any Existing working SOAPUI Project.
+
+Create  build.xml file with Following Content:
+
+          <project name="Execute SOAPUI Project" default="testreports" basedir=".">
+            <!-- set global properties for this build -->
+            <target name="soapui">
+            <exec dir="." executable="C:\Program Files (x86)\SmartBear\SoapUI-5.3.0\bin\testrunner.bat">
+            <arg line="-j -f 'E:\reports' 'E:\soapuiProject\sample-soapui-project.xml'"/>
+            </exec>
+            </target>
+            <target name="testreports" depends="soapui" >
+             <junitreport todir="E:\reports">
+                 <fileset dir="E:\reports">
+                    <include name="TEST-*.xml" />
+                 </fileset>
+                 <report todir="E:\reports\HTML" />
+              </junitreport>
+            </target>
+           </project>
+           
+ run ant command 
+ thats it.
+ 
+ 
+ 
