@@ -1,0 +1,13 @@
+In order to extend SOAPUI functionality we might need to use external jars:
+
+For example in SOAPUI Free Version,
+     1. There is no builtin test Step to send Email .
+     2. These is no builtin support to use Excel File as a Data Source
+     3. Database drivers to connect required DB
+
+SOAPUI Allows to use external jars to extend the functionality>
+Those Jars we can keep in <SOAPUI_HOME>\bin\ext directory.
+
+Here are the Path:
+     OpenSource Verion Ext Version Path: C:\Program Files (x86)\SmartBear\SoapUI-5.3.0\bin\ext
+     Commercial Version Path:            C:\Program Files\SmartBear\ReadyAPI-1.9.0\bin\ext
