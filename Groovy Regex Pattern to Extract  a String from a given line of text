@@ -31,3 +31,29 @@ public boolean validate(final String hex) {
 		matcher = pattern.matcher(hex);
 		return matcher.matches();
 	}
+
+
+
+
+
+
+Java Regex Usage Example:
+
+//Example validating the parameter “zip” using a regular expression: Validating an U.S. Zip Code (5 digits plus optional -4)
+ 
+ private static final Pattern zipPattern = Pattern.compile("^\d{5}(-\d{4})?$");
+	try {
+ 		String zipCode = request.getParameter( "zip" );
+ 		if ( !zipPattern.matcher( zipCode ).matches()  {
+ 			log.info( "Improper zipcode format." );
+ 		}
+ 	} catch(YourValidationException e ) {
+ 		log.info( "Bad Input." );
+ 	}
+ }
+
+
+
+
+Good References:
+https://www.owasp.org/index.php/Input_Validation_Cheat_Sheet
