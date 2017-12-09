@@ -5,36 +5,36 @@ SOAPUI Groovy Scripts
 3.Adding HTTP Get Request Via Groovy in SOAPUI</br>
 4.Adding HTTP POST Request Via Groovy in SOAPUI</br>
 5.Adding HTTP PUT Request Via Groovy in SOAPUI</br>
-6.Coding Conventions for SOAPUI/READY API Projects</br>
-8.Controlling Test Execution and Reading Status-Property Via Groovy</br>
-9.CreatePropertyViaGroovy</br>
-10.Creating Test Suite to work on both Open Source and Commercial Versions Of SOAPUI</br>
-11.Getting Http Status Code from Response</br>
-12.Groovy -Cleaning SOAPUI Properties Values</br>
-13.Groovy for to Extract Cookie From Login Response</br>
-14.Groovy script can run the soapui project and generate junit result</br>
-15.Header Manipulation Via Groovy in SOAPUI</br>
-16.Implementing a way to exit from test execution loop</br>
-17.Mocking Servics</br>
-18.My Swagger Hub Account</br>
-19.Optimum Care While Creating Test Suite</br>
-20.Parsing_JSON_Using_JSONSlurper</br>
-21.Print Step Name and Step Request and Step Response</br>
-22.ReadPropertyViaGroovy</br>
-23.Retrying Whole Test Case If any Test Step Fails</br>
-24.Running Multiple Test Projects via Batch file from Command Line Using testRunner</br>
-25.SOAPUI -Running Specific Step in another Test Suite</br>
-26.SOAPUI Free Reading Properties from Properties Step</br>
-27.SOAPUI OS Managing Session Across the Test Suites</br>
-28.SOAPUI_Tips_and_Tricks</br>
-29.SOPUIOS-Managing Multiple Environment Properties</br>
-30.Setting parameters in SOAPUI request using a groovy script</br>
-31.Syntax Problems between SOAPUI Versions</br>
-32.Ways to Collect Web Services information</br>
-33.Working with XAPATH in SOAPUI</br>
+6.Getting Http Status Code from Response</br>
+7.Groovy script can run the soapui project and generate junit result</br>
+8.Mocking Servics</br>
+9.My Swagger Hub Account</br>
+11.Parsing_JSON_Using_JSONSlurper</br>
+12.Print Step Name and Step Request and Step Response</br>
+13.Running Multiple Test Projects via Batch file from Command Line Using testRunner</br>
+15.SOAPUI -Running Specific Step in another Test Suite</br>
+16.SOAPUI_Tips_and_Tricks</br>
+17.Setting parameters in SOAPUI request using a groovy script</br>
+18.Syntax Problems between SOAPUI Versions</br>
+19.Ways to Collect Web Services information</br>
+20.Working with XAPATH in SOAPUI</br>
 
-SOAPUI Settings Tweaking
-===================
+SOAPUI -Best Practices
+======================
+1.Coding Conventions for SOAPUI/READY API Projects</br>
+2.Optimum Care While Creating Test Suite</br>
+3.Creating Test Suite to work on both Open Source and Commercial Versions Of SOAPUI</br>
+
+
+SOAPUI -Controlling Test Execution Flow
+=======================================
+1.Implementing a way to exit from test execution loop</br>
+2.Retrying Whole Test Case If any Test Step Fails</br>
+3.Controlling Test Execution and Reading Status-Property Via Groovy</br>
+
+
+SOAPUI -Tweaking Settings
+========================
 1.Enabling TLS 1.2 in SoapUI</br>
 2.SOAPUI VM Options File</br>
 3.Steps to Make Scripts Open Source Version Compatible</br>
@@ -42,11 +42,27 @@ SOAPUI Settings Tweaking
 5.Command Templates to run on Remote server via JSCH Channel</br>
 6.Maintaining Properties For Different Environemnts</br>
 7.Increasing Socket Time Out to 5 mins</br>
+8.SOAPUI OS Managing Session Across the Test Suites</br>
+9.SOPUIOS-Managing Multiple Environment Properties</br>
+
+
+SOAPUI -Header Management
+===========================
+1.Groovy for to Extract Cookie From Login Response</br>
+2.Header Manipulation Via Groovy in SOAPUI</br>
+
+
+SOAPUI -Property Management In SOAPUI
+===================
+9. CreatePropertyViaGroovy</br>
+22.ReadPropertyViaGroovy</br>
+12.Groovy -Cleaning SOAPUI Properties Values</br>
+26.SOAPUI Free Reading Properties from Properties Step</br>
 
 
 Pure-Groovy Stuff:
 ===================
-1. Installing Groovy On Windows Machine</br>
+1.Installing Groovy On Windows Machine</br>
 2.Create Unique Random String</br>
 3.Creating Folder to Save Logs Via Groovy</br>
 4.Creating Time Stamp in Different Time Zone</br>
