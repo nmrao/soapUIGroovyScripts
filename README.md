@@ -9,15 +9,15 @@ SOAPUI Groovy Scripts
 7.Groovy script can run the soapui project and generate junit result</br>
 8.Mocking Servics</br>
 9.My Swagger Hub Account</br>
-11.Parsing_JSON_Using_JSONSlurper</br>
-12.Print Step Name and Step Request and Step Response</br>
-13.Running Multiple Test Projects via Batch file from Command Line Using testRunner</br>
-15.SOAPUI -Running Specific Step in another Test Suite</br>
-16.SOAPUI_Tips_and_Tricks</br>
-17.Setting parameters in SOAPUI request using a groovy script</br>
-18.Syntax Problems between SOAPUI Versions</br>
-19.Ways to Collect Web Services information</br>
-20.Working with XAPATH in SOAPUI</br>
+10.Parsing_JSON_Using_JSONSlurper</br>
+11.Print Step Name and Step Request and Step Response</br>
+12.Running Multiple Test Projects via Batch file from Command Line Using testRunner</br>
+13.SOAPUI -Running Specific Step in another Test Suite</br>
+14.SOAPUI_Tips_and_Tricks</br>
+15.Setting parameters in SOAPUI request using a groovy script</br>
+16.Syntax Problems between SOAPUI Versions</br>
+17.Ways to Collect Web Services information</br>
+18.Working with XAPATH in SOAPUI</br>
 
 SOAPUI -Best Practices
 ======================
