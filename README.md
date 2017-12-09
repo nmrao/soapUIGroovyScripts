@@ -54,10 +54,10 @@ SOAPUI -Header Management
 
 SOAPUI -Property Management In SOAPUI
 ===================
-9. CreatePropertyViaGroovy</br>
-22.ReadPropertyViaGroovy</br>
-12.Groovy -Cleaning SOAPUI Properties Values</br>
-26.SOAPUI Free Reading Properties from Properties Step</br>
+1.CreatePropertyViaGroovy</br>
+2.ReadPropertyViaGroovy</br>
+3.Groovy -Cleaning SOAPUI Properties Values</br>
+4.SOAPUI Free Reading Properties from Properties Step</br>
 
 
 Pure-Groovy Stuff:
