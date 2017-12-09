@@ -1,0 +1,6 @@
+//List testSteps using Groovy Script in soapUI:
+
+def testSteps = context.testCase.getTestStepList() 
+testSteps.each{
+    log.info(it.name)
+}
