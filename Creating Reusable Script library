@@ -1,0 +1,63 @@
+Creating jar files and deploying it in ext folder of SOAP UI:
+
+1.Create a new groovy script file with a class (follows java standards in file naming i.e. class name and file name should be same)
+2.Compile the groovy code file
+3.Create the jar file
+4.Deploy the jar file at SoapUI_Home/bin/ext folder
+5.Restart the SoapUI if was already open
+6.Create the object of class and use the methods anywhere in the SoapUI projects
+
+Note: If you are migrating your project to some other machine, make sure to migrate these libraries as well if you are using them in projects
+
+***********Detailed Example********************:
+
+Step 1: Create a new groovy script file with a class structure
+
+	i. Considering the class ScriptLibrary that contain a method named printTestDetails as in following code in it:
+
+	class ScriptLibrary  {
+
+    		def context
+    		def testRunner
+    		def log
+
+    		def printTestDetails(def PrintThisToo) {
+        	log.info 'Name of the test case is :'+testRunner.testCase.name
+        	log.info 'Name of the test suite is : '+testRunner.testCase.testSuite.name
+        	log.info PrintThisToo
+    		}
+	}
+	
+	ii. Save the file with class name, ScriptLibrary.groovy in this case
+
+Step 2: Compile the code
+
+i. Open command prompt and fire following command (from the folder where where your .groovy file is kept)
+
+	Compile the code:
+		groovyc -d classes SimplePrint.groovy
+
+Step 3: Create the jar file
+
+	i. After compiling the code we can create the jar Create jar file:
+
+		jar cvf SimplePrint.jar -C classes .
+
+Step 4: Deploy the jar file at SoapUI_Home/bin/ext folder
+
+Step 5: Restart the SoapUI if was already open
+
+Step 6: Create the object of class and use the methods anywhere in the SoapUI projects
+
+	i. Creating object
+
+		def scripts = new ScriptLibrary(context:context, log:log, testRunner:testRunner)
+
+	ii. Calling methods
+		scripts.printTestDetails(“This is my argument”)
+    
+    
+References:
+1.https://stackoverflow.com/questions/35331821/creating-script-library-in-soapui-free-version
+2.http://webservice-testing.blogspot.in/2012/05/groovy-script-library-in-soapui.html
+
