@@ -31,19 +31,20 @@ SOAPUI -Controlling Test Execution Flow
 1.Implementing a way to exit from test execution loop</br>
 2.Retrying Whole Test Case If any Test Step Fails</br>
 3.Controlling Test Execution and Reading Status-Property Via Groovy</br>
+4.Creating Reusable Script library
 
 
 SOAPUI -Tweaking Settings
 ========================
 1.Enabling TLS 1.2 in SoapUI</br>
 2.SOAPUI VM Options File</br>
-3.Steps to Make Scripts Open Source Version Compatible</br>
-4.SOAPUI OS Free Version Sending Email Test Report</br>
+3.SOAP UI OS: Steps to Make Scripts Open Source Version Compatible</br>
+4.SOAP UI OS: Free Version Sending Email Test Report</br>
 5.Command Templates to run on Remote server via JSCH Channel</br>
-6.Maintaining Properties For Different Environemnts</br>
+6.SOAP UI OS: Maintaining Properties For Different Environemnts</br>
 7.Increasing Socket Time Out to 5 mins</br>
-8.SOAPUI OS Managing Session Across the Test Suites</br>
-9.SOPUIOS-Managing Multiple Environment Properties</br>
+8.SOAP UI OS: Managing Session Across the Test Suites</br>
+9.SOAP UI OS:-Managing Multiple Environment Properties</br>
 
 
 SOAPUI -Header Management
@@ -57,7 +58,7 @@ SOAPUI -Property Management In SOAPUI
 1.CreatePropertyViaGroovy</br>
 2.ReadPropertyViaGroovy</br>
 3.Groovy -Cleaning SOAPUI Properties Values</br>
-4.SOAPUI Free Reading Properties from Properties Step</br>
+4.SOAP UI OS: Reading Properties from Properties Step</br>
 
 
 Pure-Groovy Stuff:
