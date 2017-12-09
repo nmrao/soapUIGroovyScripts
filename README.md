@@ -49,3 +49,7 @@ SOAPUI Groovy Scripts
 48.Syntax Problems between SOAPUI Versions</br>
 49.Ways to Collect Web Services information</br>
 50.Working with XAPATH in SOAPUI</br>
+
+Pure-Groovy Stuff:
+===================
+1. Installing Groovy On Windows Machine</ber>
