@@ -75,3 +75,16 @@ Pure-Groovy Stuff:
 10.Groovy Snippet To Compare Two Time Stamp</br>
 11.Reading Performance logging Times</br>
 12.Play With Collections
+
+
+SOAPUI Open Source API DOC:
+==========================
+http://www.soapui.org/apidocs/overview-summary.html
+
+
+SOAPUI Pro  API DOC:
+==========================
+http://www.soapui.org/apidocs/pro/
+
+
+
