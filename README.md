@@ -73,3 +73,4 @@ Pure-Groovy Stuff:
 9.Groovy Regex Pattern to Extract a String from a given line of text</br>
 10.Groovy Snippet To Compare Two Time Stamp</br>
 11.Reading Performance logging Times</br>
+12.Play With Collections
