@@ -1,0 +1,20 @@
+Tasks List:
+  1.Swagger Definition File Import
+  2.Create Test Suite
+  3.Create Mock Services 
+
+Sample Swagger Definition File URL: http://petstore.swagger.io/#/pet/addPet
+Swagger URL(To Import): 
+                          http://petstore.swagger.io/v2/swagger.json
+
+Steps to import Sawgger Definition File into SOAP UI:
+1. Create Empty Project
+2. Right Click on Project and Choose ''import Sawgger' option
+3. Add Swagger Definition Dialog will open
+4. Enter following URL in 'Swagger Definition Text Field and Choose Definition Type as:'Resource Listing' Click on OK button
+        http://petstore.swagger.io/v2/swagger.json
+5. API interface will be cerated
+6. Right Click on Create REST Mock Service
+7. Now Virtual Server will start and mocked version of API can be ac. cessed via browser and SOAPUI as well
+8. Right Click on Create REST Test Suite for the same interface
+
