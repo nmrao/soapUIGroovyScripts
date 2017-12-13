@@ -1,4 +1,4 @@
-Mocking Servics
+####Mocking Services
 
 //Setting mock request headers
   mockRequest.httpResponse.setHeader('MyHeader', "HiThere;")
@@ -10,4 +10,7 @@ Mocking Servics
   resp.setResponseHttpStatus(202)
   return 'MyResponse'
   
-    References:https://www.soapui.org/rest-testing-mocking/rest-mock-service-creation/rest-mock-from-service.html
+    References:
+    
+    https://www.soapui.org/rest-testing-mocking/rest-mock-service-creation/rest-mock-from-service.html
+    https://www.soapui.org/soap-mocking/creating-dynamic-mockservices.html
