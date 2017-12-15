@@ -1,0 +1,10 @@
+// Replace names of a project, test suite, case and step with those you need.
+
+// Connecting to the test step in another project.
+def prj = testRunner.testCase.testSuite.project.workspace.getProjectByName("ProjectName")
+tCase = prj.testSuites['TestSuiteName'].testCases['TestCaseName']
+tStep = tCase.getTestStepByName("TestStepName")
+
+// Calling the test runner and checking if it can run the specified step.
+def runner = tStep.run(testRunner, context)
+log.info ("runner status ....... : " + runner.hasResponse())
