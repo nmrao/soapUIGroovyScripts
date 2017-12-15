@@ -81,12 +81,20 @@ Dynamic Properties:
 	${=request.name}
 	${=request.operation.interface.project.name}
 	
+In Groovy Script Step:
 
+	// Set values to the same properties.
+		testRunner.testCase.setPropertyValue( "PropertyName", 'someValue' )
+		testRunner.testCase.testSuite.setPropertyValue( "PropertyName", 'someValue' )
+		testRunner.testCase.testSuite.project.setPropertyValue( "PropertyName", 'someValue' )
+		com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "PropertyName", 'someValue' )
 
-// Get properties from the test case, test suite and project.
-	def testCaseProperty = testRunner.testCase.getPropertyValue( "PropertyName" )
-	def testSuiteProperty = testRunner.testCase.testSuite.getPropertyValue( "PropertyName" )
-	def projectProperty = testRunner.testCase.testSuite.project.getPropertyValue( "PropertyName" )
-	def globalProperty = com.eviware.soapui.SoapUI.globalProperties.getPropertyValue( "PropertyName" );
+	// Get properties from the test case, test suite and project.
+		def testCaseProperty = testRunner.testCase.getPropertyValue( "PropertyName" )
+		def testSuiteProperty = testRunner.testCase.testSuite.getPropertyValue( "PropertyName" )
+		def projectProperty = testRunner.testCase.testSuite.project.getPropertyValue( "PropertyName" )
+		def globalProperty = com.eviware.soapui.SoapUI.globalProperties.getPropertyValue( "PropertyName" );
 
-	
+In Groovy Script Assertion Step:Access test cases in a different way:
+		 def testCaseProperty = messageExchange.modelItem.testStep.testCase.getPropertyValue( "MyProp" ) 
+
