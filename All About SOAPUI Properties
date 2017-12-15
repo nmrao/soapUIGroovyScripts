@@ -81,3 +81,12 @@ Dynamic Properties:
 	${=request.name}
 	${=request.operation.interface.project.name}
 	
+
+
+// Get properties from the test case, test suite and project.
+	def testCaseProperty = testRunner.testCase.getPropertyValue( "PropertyName" )
+	def testSuiteProperty = testRunner.testCase.testSuite.getPropertyValue( "PropertyName" )
+	def projectProperty = testRunner.testCase.testSuite.project.getPropertyValue( "PropertyName" )
+	def globalProperty = com.eviware.soapui.SoapUI.globalProperties.getPropertyValue( "PropertyName" );
+
+	
