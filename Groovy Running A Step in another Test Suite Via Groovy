@@ -1,0 +1,1 @@
+log.info testRunner.testCase.testSuite.project.workspace.getProjectByName("myProject").testSuites["yourTestSuite"].testCases["TestCase 1"].testSteps["delete"].run(testRunner, context)
