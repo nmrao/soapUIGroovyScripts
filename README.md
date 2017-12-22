@@ -77,6 +77,11 @@ Pure-Groovy Stuff:
 12.Play With Collections
 
 
+Jenkins -SOAPUI _Running Test On Remote Node
+==========================
+1. Running-ReadyAPI-tests-from-Jenkins-on-Windows-Nodes
+
+
 SOAPUI Open Source API DOC:
 ==========================
 http://www.soapui.org/apidocs/overview-summary.html
