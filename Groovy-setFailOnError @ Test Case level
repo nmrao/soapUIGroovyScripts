@@ -1,0 +1,58 @@
+
+
+testRunner.testCase.testSuite.project.getTestSuiteList().each{
+ it.getTestCaseList().each{
+  it.setFailOnError(true)
+ }
+}
+
+testRunner.testCase.getPropertyCount();
+
+
+
+
+
+log.info testRunner.metaClass.methods*.name
+
+Fri Dec 22 23:23:20 IST 2017:INFO:[
+equals, getClass, hashCode, notify, notifyAll, toString, wait, wait, 
+wait, cancel, fail, getLog, getReason, getRunContext, getStartTime, 
+getStatus, getTestRunnable, getTimeTaken, isRunning, setRunContext, start, waitUntilFinished, getResults, getRunContext,
+getTestCase, gotoStep, gotoStepByName, runTestStep, runTestStepByName, setMockRunContext]
+
+log.info testRunner.testCase.metaClass.methods*.name
+
+Fri Dec 22 23:24:09 IST 2017:INFO:[equals, getClass, hashCode, notify, 
+notifyAll, toString, wait, wait, wait, addPropertyChangeListener, 
+addPropertyChangeListener, fireIndexedPropertyChange, fireIndexedPropertyChange, 
+fireIndexedPropertyChange, getChildren, getProject, notifyPropertyChanged, 
+notifyPropertyChanged, notifyPropertyChanged, notifyPropertyChanged, 
+removePropertyChangeListener, removePropertyChangeListener, 
+afterLoad, beforeSave, dependsOn, getConfig, getDescription,
+getExternalDependencies, getIcon, getId, getName, getParent,
+getSettings, getWsdlModelItemById, getWsdlModelItemByName,
+release, resolve, setConfig, setDescription, setIcon, setName,
+addPropertiesFromFile, addProperty, addTestPropertyListener, 
+getModelItem, getProperties, getPropertiesLabel, getProperty, 
+getPropertyAt, getPropertyCount, getPropertyList, getPropertyNames, 
+getPropertyValue, hasProperty, moveProperty, removeProperty, 
+removeTestPropertyListener, renameProperty, setPropertyValue, addNewLoadTest, 
+addNewSecurityTest, addTestRunListener, addTestStep, addTestStep, addTestStep, 
+afterCopy, buildLoadTest, cloneLoadTest, cloneSecurityTest, cloneStep, 
+exportTestCase, findNextStepOfType, findPreviousStepOfType, getAmfAuthorisation,
+getAmfEndpoint, getAmfLogin, getAmfPassword, getChildren, getCreateActions, 
+getDiscardOkResults, getFailOnError, getFailTestCaseOnErrors, 
+getIndexOfLoadTest, getIndexOfSecurityTest, getIndexOfTestStep, getKeepSession, 
+getLabel, getLoadTestAt, getLoadTestByName, getLoadTestCount, getLoadTestList,
+getLoadTests, getMaxResults, getRunFromHereContext, getSearchProperties,
+getSecurityTestAt, getSecurityTestByName, getSecurityTestCount, getSecurityTestList, getSecurityTests,
+getSetupScript, getTearDownScript, getTestRunListeners, getTestStepAt, getTestStepById, getTestStepByName, 
+getTestStepCount, getTestStepIndexByName, getTestStepList, getTestSteps, getTestStepsOfType, 
+getTestStepsOrdered, getTestSuite, getTimeout, getWsrmAckTo, getWsrmEnabled, getWsrmExpires, getWsrmVersion, 
+getWsrmVersionNamespace, importSecurityTests, importTestStep, importTestSteps, insertTestStep, 
+insertTestStep, insertTestStep, insertTestSteps, isDisabled, isForLoadTest, moveTestStep, release,
+removeLoadTest, removeSecurityTest, removeTestRunListener, removeTestStep, resetConfigOnMove, 
+run, runSetupScript, runTearDownScript, setAmfAuthorisation, setAmfEndpoint, setAmfLogin,
+setAmfPassword, setDisabled, setDiscardOkResults, setFailOnError, setFailTestCaseOnErrors,
+setKeepSession, setMaxResults, setName, setRunFromHereContext, setSearchProperties, setSetupScript, 
+setTearDownScript, setTimeout, setWsrmAckTo, setWsrmEnabled, setWsrmExpires, setWsrmVersion, addPropertyChangeListener]
