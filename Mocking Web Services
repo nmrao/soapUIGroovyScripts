@@ -1,0 +1,41 @@
+####Mocking Services
+
+//Setting mock request headers
+  mockRequest.httpResponse.setHeader('MyHeader', "HiThere;")
+  mockRequest.httpResponse.setContentLength(456)
+  mockRequest.httpResponse.sendError(404)
+
+//Setting response properties
+  def resp = mockOperation.getMockResponseByName('MyResponse')
+  resp.setResponseHttpStatus(202)
+  return 'MyResponse'
+
+//get target TestCase
+  def project = mockResponse.mockOperation.mockService.project
+  def testCase = project.testSuites["TestSuite Name"].testCases["TestCase Name"]
+  
+// Get target request
+  def project = mockResponse.mockOperation.mockService.project
+  def request = project.interfaces["NewWebServicePortBinding"].operations["sum"].getRequestByName("Request 2")
+
+//Using Files in Response
+  def file = new File(path)
+  def file = new File(mockRunner.mockService.docroot + \\foo.txt)
+
+//Mock Handler Objects
+  A number of objects are commonly available in most scripts; here comes a quick overview with links to their corresponding javadoc:
+      context – used for storing MockService-wide objects, for example database connections, security tokens, etc
+      requestContext – used for storing Mock Request-wide objects, for example dynamic content to be inserted into the response message
+      mockRequest – an object corresponding to the actual request made to the MockService. Through this object you can get hold of the incoming message, its headers, etc. Also the underlying HttpRequest and HttpResponse objects are available for “low-level” processing
+      mockResult – an object encapsulating the result of the dispatched request, this is available in the MockService.afterRequest script.
+      mockResponse/mockOperation – objects available at the corresponding levels for accessing the underlying configuration and functionality
+      mockRunner – the object corresponding to the execution of the MockService; this gives you access to previous mock results, etc
+
+//
+
+    References:
+    https://www.soapui.org/rest-testing-mocking/rest-mock-service-creation/rest-mock-from-service.html
+    https://www.soapui.org/soap-mocking/creating-dynamic-mockservices.html
+    https://www.soapui.org/soap-mocking/deploying-mock-services-as-war-files.html
+    https://www.soapui.org/soap-mocking/tips-and-tricks/securing-mockservices-with-ssl.html
+
