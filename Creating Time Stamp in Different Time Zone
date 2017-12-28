@@ -15,3 +15,22 @@ log.info ("""----------->>>>>Current Time Hours $currentHours
 		   ----------->>>>>Current Date $currentDate""");
        
 //Output :INFO:----------->>>>>Current Time Hours 23   ----------->>>>>Current Date 2017-06-16
+
+
+//Generating Time Stamp in Given Time Zone and Adding 30 minutes to minutes part
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
+
+def cal = Calendar.getInstance();
+TimeZone zone = TimeZone.getTimeZone("EST");
+SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
+dateFormat.setTimeZone(zone);
+String currentDate=dateFormat.format(new Date());
+log.info "Exact Time in EST Time Zone: "+currentDate
+cal.setTime(dateFormat.parse(currentDate))
+cal.add(Calendar.MINUTE, 30);
+String latestCurrentDate = dateFormat.format(cal.getTime());
+log.info latestCurrentDate
+log.info "30 Mins After Time in EST Time Zone: "+latestCurrentDate
