@@ -1,0 +1,5 @@
+soapui.project=sample-soapui-project.xml
+soapui.testsuite=xxxx
+wsdl.url=
+user.name=
+user.password=
