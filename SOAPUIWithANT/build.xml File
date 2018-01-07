@@ -3,15 +3,15 @@
 	<property name="test.dir" value="test-results"/>
 	<property name="project.dir" location="project"/>
 	
-	<target name="clean">
+    <target name="clean">
        <delete dir="${test.dir}"/>
     </target>
 
-	<target name="init">
+    <target name="init">
       <mkdir dir="${test.dir}"/>
     </target>
 
-	<target name="test-with-properties" depends="init">
+    <target name="test-with-properties" depends="init">
 		<java classname="com.eviware.soapui.tools.SoapUITestCaseRunner" errorproperty="tests-failed" fork="yes" dir="${test.dir}">
 		  <arg line="-j -M -r -a -f${basedir}/${test.dir}"/>
 		  <arg value="-e${wsdl.url}"/>
@@ -23,9 +23,9 @@
 			<fileset dir="lib" includes="*.jar"/>
 		  </classpath>
 		</java>
-	</target>
+     </target>
 	
-	<target name="test" depends="init">
+     <target name="test" depends="init">
 		<java classname="com.eviware.soapui.tools.SoapUITestCaseRunner" errorproperty="tests-failed" fork="yes" dir="${test.dir}">
 		  <arg line="-j -M -r -a -f${basedir}/${test.dir}"/>
 		  <arg value="${project.dir}/${soapui.project}"/>
@@ -33,15 +33,15 @@
 			<fileset dir="lib" includes="*.jar"/>
 		  </classpath>
 		</java>
-	</target>
+      </target>
 	
-	<target name="test-single-project" depends="init">
+      <target name="test-single-project" depends="init">
 		<antcall target="run-single-test">
 		  <param name="project" value="${project.dir}/${soapui.project}"/>
 		</antcall>
-	</target>
+      </target>
 	
-	<target name="run-single-test">
+      <target name="run-single-test">
 	    <java classname="com.eviware.soapui.tools.SoapUITestCaseRunner" errorproperty="tests-failed" fork="yes" dir="${test.dir}">
 		  <arg line="-j -M -r -a -f${basedir}/${test.dir}"/>
 		  <arg value="${project}"/>
@@ -49,17 +49,17 @@
 			<fileset dir="lib" includes="*.jar"/>
 		  </classpath>
 		</java>
-	</target>
+      </target>
 	
 	
-	<target name="report">
+      <target name="report">
 		<junitreport todir="${test.dir}">
 		  <fileset dir="${test.dir}">
 			<include name="TEST-*.xml"/>
 		  </fileset>
 		  <report format="frames" todir="${test.dir}/reports/html"/>
 		</junitreport>
-    </target>
+      </target>
 	
 	
 </project>
