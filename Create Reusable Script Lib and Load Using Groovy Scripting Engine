@@ -1,0 +1,77 @@
+####Create Reusable Script Lib and Load Using Groovy Scripting Engine 
+
+import groovy.lang.Binding
+import groovy.util.GroovyScriptEngine
+
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils( context )  // location of script file is relative to SOAPUI project file.
+String scriptPath = groovyUtils.projectPath + "/groovyLib/"
+// Create Groovy Script Engine to run the script.
+GroovyScriptEngine gse = new GroovyScriptEngine(scriptPath) 
+// Load the Groovy Script file 
+externalScript = gse.loadScriptByName("LoadProperties.groovy")  
+// Create a runtime instance of script
+script = externalScript.newInstance()
+// Sanity check 
+assert script!= null
+// run the foo method in the external script
+log.info script.loadProjectProperties(log,context,testRunner)
+
+
+####Create dir with name:groovyLib in project directory/path
+Create a script :LoadProperties.groovy
+with Following Code:
+
+def loadProjectProperties(def log,def context,def testRunner){
+		def groovyUtils=new  com.eviware.soapui.support.GroovyUtils(context)
+		def projectPath = groovyUtils.projectPath
+		def env = testRunner.getTestCase().getTestSuite().getProject().getActiveEnvironmentName()
+		log.info('Environment Choosen to Execute Test = ' + env)
+
+		//Constructing Environment Project Specific Config File Name 
+		def projectFilePath=testRunner.getTestCase().getTestSuite().getProject().getPath()
+		log.info "Project Path: "+projectFilePath
+		def projectFileObj = new File(projectFilePath);
+		String projFileName=projectFileObj.getName();
+		String projFileNameWithOutExtn=projFileName.substring(0,projFileName.indexOf('.'));
+		log.info "Project File Name Without Extension : $projFileNameWithOutExtn";
+
+		//Constructing Environment Project Specific Config File Path
+		String envSpecDataConfigFileName=projFileNameWithOutExtn+".properties"
+		String sperator=System.getProperty("file.separator");//Finding OS Specific File Seperator
+		String envSpecDataConfigFilePath=projectPath+sperator+env+sperator+envSpecDataConfigFileName
+		def dataConfigFile=new File(envSpecDataConfigFilePath);
+
+		//Checking for File Existence ,If File not exist then whole test execution will be aborted
+		if(dataConfigFile.exists()){
+			log.info "Data Config File $envSpecDataConfigFilePath Found";
+		}
+		else{
+			log.info "Opps.....! Data Config File $envSpecDataConfigFilePath Not Found!!!!"
+			testRunner.fail("Opps.....! Data Config File $envSpecDataConfigFilePath Not Found!!!!")
+		}
+
+		//Removing the Existing Config Data @ Project Level
+		def project=testRunner.testCase.testSuite.project;
+		for( prop in project.properties) {
+			project.removeProperty( prop.value.name )
+		   }
+
+		//Loading the Env Specific Config data
+		def props = new Properties()
+		new File(envSpecDataConfigFilePath).withInputStream {
+			stream -> props.load(stream) 
+		}
+
+		//Updating the Project Properties
+		log.info("Loading Env: "+env+" Specific Project Data");
+		props.each {
+			String propKey=it.key;
+			String propValue=it.value;
+			project.setPropertyValue(propKey,propValue)
+			def propValue1=project.getPropertyValue(propKey);
+			log.info "$propKey:$propValue1"  //Later this can be commented out to stop shoing properties in Log 
+		}
+		log.info("Data Loading Completed");
+}
+
+
