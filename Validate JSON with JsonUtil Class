@@ -1,0 +1,11 @@
+JsonUtil Class is available in Open Source Edition 5.1.2 onwards
+Following script is used to validate JSON using JsonUtil class: 
+
+import com.eviware.soapui.support.JsonUtil
+def json = """{
+   "parent":{
+       "child":"oldValue"
+    }
+}"""
+
+log.info JsonUtil.isValidJson(json)
