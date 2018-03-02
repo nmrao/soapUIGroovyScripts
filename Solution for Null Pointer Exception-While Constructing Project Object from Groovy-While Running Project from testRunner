@@ -1,0 +1,27 @@
+
+##Solution for Null Pointer Exception-While Constructing Project Object from Groovy-While Running Project from testRunner
+# Project object can be constructed and used "testRunner.testCase.testSuite.project" while running project from Ready API GUI
+# if Project object is constructed using "testRunner.testCase.testSuite.project" 
+    then testRunner will throw null Pointer Exception- if Running Project from testRunner
+# Reason : testRunner cannot be acces project object directly if test triggered from commend line.
+
+##Solution snippet
+
+      import com.eviware.soapui.model.project.ProjectFactoryRegistry
+      import com.eviware.soapui.impl.wsdl.WsdlProjectFactory
+
+      def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+      def projectDir = groovyUtils.projectPath
+      log.info(projectDir)
+
+      def projectName = testRunner.testCase.testSuite.project.name
+      log.info "projectName: "+projectName
+      def workspace = testRunner.testCase.testSuite.project.workspace
+      def testProject = (workspace==null) ? 
+      ProjectFactoryRegistry.getProjectFactory(WsdlProjectFactory.WSDL_TYPE).createNew(projectDir+".xml") :
+      workspace.getProjectByName(projectName)
+      log.info testProject
+
+
+Refernce;   https://community.smartbear.com/t5/SoapUI-Open-Source/java-error-when-running-from-command-line/td-p/5677 
+ 
