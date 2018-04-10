@@ -1,0 +1,8 @@
+import java.text.SimpleDateFormat;
+TimeZone zone = TimeZone.getTimeZone("America/New_York");
+SimpleDateFormat timeStampFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss:sss");
+timeStampFormat .setTimeZone(zone);
+def  instantTimeStamp=timeStampFormat.format(new Date());
+Date date = timeStampFormat.parse(instantTimeStamp);
+def  timeInMilliSecond = date.getTime();
+log.info timeInMilliSecond
