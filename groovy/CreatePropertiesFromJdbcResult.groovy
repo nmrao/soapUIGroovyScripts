@@ -19,9 +19,14 @@ def jdbcResponse = """<Results>
 //def jdbcResponse = context.response
 
 def xml = new XmlSlurper().parseText(jdbcResponse)
+
 //Modify the test step name if different from Properties
 def step = context.testCase.testSteps['Properties']
+
+//Clean up properties from previous run
 step.propertyNames?.each { step.removeProperty(it) }
+
+//Find Row element; Get its children i.e., columns and values and add them as properties to Properties step 
 xml.'**'.find{it.name() == 'Row'}.childNodes().each { 
 	def prop = step.hasProperty(it.name()) ? step.getProperty(it.name()) : step.addProperty(it.name())
 	prop.value = it.text()
