@@ -21,7 +21,7 @@ def jdbcResponse = """<Results>
 def xml = new XmlSlurper().parseText(jdbcResponse)
 //Modify the test step name if different from Properties
 def step = context.testCase.testSteps['Properties']
-def map = [:]
+
 xml.'**'.find{it.name() == 'Row'}.childNodes().each { 
 	def prop = step.hasProperty(it.name()) ? step.getProperty(it.name()) : step.addProperty(it.name())
 	prop.value = it.text()
