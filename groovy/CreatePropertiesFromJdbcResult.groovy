@@ -3,7 +3,7 @@
 * extracts column names and values for a single row (assuming query retuns a single row)
 * and put the extracted data into following Properties test step
 * Refer for more details
-*
+* https://community.smartbear.com/t5/forums/replypage/board-id/SoapUING_forum/message-id/40377
 ** /
 
 //For testing, using fixed response
@@ -19,6 +19,7 @@ def jdbcResponse = """<Results>
 //def jdbcResponse = context.response
 
 def xml = new XmlSlurper().parseText(jdbcResponse)
+//Modify the test step name if different from Properties
 def step = context.testCase.testSteps['Properties']
 def map = [:]
 xml.'**'.find{it.name() == 'Row'}.childNodes().each { 
