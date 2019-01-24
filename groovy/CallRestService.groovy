@@ -4,16 +4,20 @@
 *
 * /
 import wslite.rest.*
+//Change the host as per your environment
 def serviceHost = 'http://petstore.swagger.io' 
+
 //Below to handle template parameter, additional $ required before
-def getPetIdPath = '''/v2/pet/${petId}'''
-//define all template param values as shown below
+//The value is nothing but value that you see in the Resource 
+def path = '''/v2/pet/${petId}'''
+
+//define all template param values as shown below and these gets replaced in the actual call
 def binding = [petId : 6598053714149417000]
 
-def template = new groovy.text.SimpleTemplateEngine().createTemplate(getPetIdPath)
+def template = new groovy.text.SimpleTemplateEngine().createTemplate(path)
 
 def queryParams = [:]
-//Get the properties of Property Test step
+//Get the properties of Property Test step and put them in a map; which will finally be send in REST call as query parameters
 context.testCase.testSteps["Properties"].properties.each {
 	queryParams[it.key] = it.value.value
 }
