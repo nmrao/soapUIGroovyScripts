@@ -1,7 +1,8 @@
 /**
 * Groovy script which can call REST Service with
 * Template and Varying query parameters (including keys & no of params)
-*
+* Refer: https://community.smartbear.com/t5/SoapUI-Pro/A-bit-more-groovy-help-Populating-a-REST-URI-with-Properties-Set/m-p/177766/highlight/false#M40455
+* Basically, SoapUI does not allow dynamic names for query parameter names. This script is to overcome that.
 * /
 import wslite.rest.*
 //Change the host as per your environment
