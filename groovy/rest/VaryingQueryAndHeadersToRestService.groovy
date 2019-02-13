@@ -19,7 +19,7 @@ def headerz = getMap('HEADER')
 def queriez = getMap('QUERY')
 log.info headers
 log.info queries
-def serviceHost = context.expand('${#Project#SERVICE_HOST_PORT}'
+def serviceHost = context.expand('${#Project#SERVICE_HOST_PORT}')
 def urlPath = '/agents/organizations'
 
 def client = new RESTClient(serviceHost)
