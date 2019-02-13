@@ -2,7 +2,7 @@
 * Below is the Groovy Script
 * which can add the JMS Properties to the given test step from a map
 *
-* Ref:
+* Ref: https://community.smartbear.com/t5/SoapUI-Open-Source/Dynamically-set-JMS-Properties-from-groovy-code/m-p/179202/highlight/false#M28346
 **/
 
 import com.eviware.soapui.config.JMSPropertyConfig
