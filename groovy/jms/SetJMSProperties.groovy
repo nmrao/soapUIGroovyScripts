@@ -27,4 +27,4 @@ map.each { key, value ->
 
             
 existingProperties.clear()
-step.httpRequest.getJMSPropertiesConfig().setJMSProperties(newList)
+existingProperties.addAll(newList)
