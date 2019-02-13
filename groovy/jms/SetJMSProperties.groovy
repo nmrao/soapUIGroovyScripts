@@ -11,7 +11,7 @@ import com.eviware.soapui.config.JMSPropertyConfig
 def map = [a:'one', b: 'two']
 
 //Provide the step name to set the properties
-def stepName = 'Submit Order_OrderSubmission'
+def stepName = 'Order'
 
 //Donot modify beyond this
 def step = context.testCase.testSteps[stepName]
