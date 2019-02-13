@@ -2,7 +2,7 @@
 * Groovy script to call varying query and header parameters
 * parameters are read from custom properties of test case
 *
-* Ref:
+* Ref:https://community.smartbear.com/t5/SoapUI-Pro/How-to-omit-parameters-in-a-REST-request/m-p/179296#M40815
 ***/
 
 import wslite.rest.*
