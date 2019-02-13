@@ -17,8 +17,8 @@ def getMap = { key ->
 
 def headerz = getMap('HEADER')
 def queriez = getMap('QUERY')
-log.info headers
-log.info queries
+log.info headerz
+log.info queriez
 def serviceHost = context.expand('${#Project#SERVICE_HOST_PORT}')
 def urlPath = '/agents/organizations'
 
