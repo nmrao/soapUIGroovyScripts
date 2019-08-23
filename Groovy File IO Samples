@@ -1,9 +1,13 @@
 File IO in Groovy
 
-File file = new File("E:/Example.txt") 
+def file = new File("E:/Example.txt") 
+
+
+// Checking File Existence
+file.exists()
+
 
 //Reading Files
-
 1.Reading File content as a String
     log.info file.text
 
@@ -25,3 +29,9 @@ File file = new File("E:/Example.txt")
 2.  file<< '''Into the ancient pond
 		A frog jumps
 	   Water’s sound!'
+	   
+	   
+	   
+3.  File Seperator system Property
+    File.separator
+	   
