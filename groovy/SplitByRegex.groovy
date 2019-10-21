@@ -1,0 +1,5 @@
+def str = '''02023009005032000 290609       OYMZY 
+03023009005609502 0500047405000OAYMOZEY           00000000000000025    IZVTOADV    IZVTOADV   OAYMOZEY 
+039930090056095               0047405000'''
+def data = str.split(/\s+/)
+data.each { log.info it}
