@@ -10,7 +10,7 @@
 **/
 def getStep = { context.testCase.testStepList[context.currentStepIndex+(it)] }
 
-def response = new XmlParser(false, true).parseText(getStep(-1).httpRequest.responseContentAsString)
+def response = new XmlParser(false, true).parseText(getStep(-1).httpRequest.responseContent)
 def request = new XmlParser(false, true).parseText(getStep(1).httpRequest.requestContent)
 //Remove existing travelSolutions
 def eTSols = request.'**'.findAll{it.name() == 'travelSolutions'}
