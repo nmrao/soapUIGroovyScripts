@@ -1,7 +1,7 @@
 /**
 * this example shows how to assert a json element of an array
 **/
-import net.sf.json.groovy.JsonSlurper
+import groovy.json.JsonSlurper
 def jsonText = '''{
   "cars": [
     {
