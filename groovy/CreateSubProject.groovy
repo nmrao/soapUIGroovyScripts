@@ -13,7 +13,7 @@ You may create an empty project and create an arbitary test case and add groovy 
 and modify values for below
 -- templateProjectPath (absolute path  of the original soapui project)
 -- subProjectPath (provide the absolute path where sub set of the project needs to be written
--- suties (provide the suite names which needs to be copied into sub project)
+-- suites (provide the suite names which needs to be copied into sub project)
 
 **/
 
