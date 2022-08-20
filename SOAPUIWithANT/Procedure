@@ -1,0 +1,9 @@
+
+A SOAP/Rest Project must be is Available locallty.
+
+Running from ANT
+
+Procedure:
+		1.Install ANT
+		2.Generate Build.xml
+		3.Trigger from Command Lin

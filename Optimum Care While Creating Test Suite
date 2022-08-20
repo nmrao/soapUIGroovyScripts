@@ -1,0 +1,9 @@
+Optimum Care While Creating Test Suite
+
+1. Use test Case level timeout feature
+2. Use test case level maintain HTTP session feature
+3. Allways implement Some time out mechanism :
+           -Max Time out
+           -Max Number of retried (With fixed retry duration or increasing or decreasing retry duration) 
+4. Do not repeat any HTTP step
+       insted testRunner

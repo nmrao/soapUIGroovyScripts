@@ -1,0 +1,45 @@
+Groovy Provides lots of Ready to Eat Stuff.
+
+Many Times we might need to store Map As String in Test Case/Test Suite/Project Level Properties.
+
+Because  setPropertyValue method will accept only String type Key and String Type Valve,
+Here is the Syntax: 
+    testRunner.testCase.setPropertyValue( <String Key>, <String Value>)
+We cannot directly store Map object into Test  Case Properties>
+
+In order to do that we must convert the HashMap to String.
+def testResults = [testCase1: 'Passed',testCase2: 'Passed',testCase3: 'Failed']
+log.info testResults.toMapString()
+  Output:[testCase1:Passed, testCase2:Passed, testCase3:Failed]
+
+  So testResults HashMap Just converted to String but still you can see box brackets in begining and ending of the String 
+  Now simplay strip them off and output will get as following 
+  
+log.info testResults.toMapString().replace("[","").replace("]","");
+  Output: testCase1:Passed, testCase2:Passed, testCase3:Failed
+
+<Self Note>: Add Some notes on:
+Similarly we can also convert ArrayList as a String
+
+<Self Note>: Add Some notes on:
+Similarly we can also convert File Text Content  as a  String
+
+<Self Note>: Add Some notes on:
+Groovy Trouth
+
+<Self Note>: Add Some notes on:
+Groovy Trouth to check empty or null objects safely 
+
+<Self Note>: Add Some notes on:
+Groovy Strings
+
+
+<Self Note>: Add Some notes on:
+  context.setProperty(),
+  context.getProperty()
+  Using context object passing the values between groovy scripts(to Aggregate Results). 
+
+<Self Note>: Add Some notes on:
+  Difference between context.setProperty() Vs testRunner.testCase.setPropertyValue( <String Key>, <String Value>)
+  When to use which?
+  

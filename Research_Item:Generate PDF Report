@@ -1,0 +1,15 @@
+http://dynamicreports.org/examples/collectiondatasourcereport
+http://dynamicreports.org/examples/conditionalstylereport
+http://www.doan.me/reporting-in-soapui-free-edition.aspx
+
+        def currentDate = new Date().format("yyyy-MM-dd hh:mm");
+        resultsFile.append('"' + currentDate + '"');
+
+
+    if(context.expand('${#Project#ProduceReports}') == 'true') {
+        //The path and file to persist results
+        def resultDir = new File("C:\\SoapUIResults");
+        if(!resultDir.exists()) {
+            resultDir.mkdirs();
+        }
+        def resultsFile = new File(resultDir, "CSVReport.csv");

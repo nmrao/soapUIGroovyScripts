@@ -1,0 +1,19 @@
+import java.text.SimpleDateFormat;
+
+TimeZone zone = TimeZone.getTimeZone("EST5EDT");
+SimpleDateFormat df2 = new SimpleDateFormat("yyyy-MM-dd");
+df2.setTimeZone(zone);
+String daybeforeYesterdayDate=df2.format(new Date()-2);  Calcurating 2 days prior data from Curent data
+String endDate=df2.format(new Date());
+log.info "daybeforeYesterday Date: "+daybeforeYesterdayDate
+String startTime=daybeforeYesterdayDate+" "+"00:10:00"
+String endTime=endDate+" "+"23:59:59"
+log.info "startTime: $startTime"
+log.info "endTime: $endTime"
+Long startMillis = (((new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(startTime).getTime()/1000)+34200)*1000);
+Long endMillis = (((new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(endTime).getTime()/1000)+34200)*1000);
+log.info "startMillis : $startMillis"
+log.info "endMillis : $endMillis"
+
+testRunner.testCase.testSuite.project.setPropertyValue("startMillis", startMillis.toString())
+testRunner.testCase.testSuite.project.setPropertyValue("endMillis", endMillis.toString())

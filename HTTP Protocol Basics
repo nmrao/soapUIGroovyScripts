@@ -1,0 +1,69 @@
+Http Protocol versions
+  HTTP 1.0
+  HTTP 2.1
+
+
+Basic HTTP Method:
+  GET
+      200   OK
+      
+  POST
+      200   OK
+      201   Created
+      204   No Content
+  
+  PUT
+
+  
+  DELETE
+      200 Ok
+      202 Accpted
+      204 No Content
+      
+Http Request:
+      Request URL:
+      Headers
+      Body
+      
+
+Http Response:
+      Response Content
+      Headers
+      Body
+
+Maximum POST Body Size:     Protocol never define sizes,it is left server settings that it can handle
+Maximum Get Header Length:  Protocol never define sizes,it is left server settings that it can handle
+
+Body Content:
+    XML
+    JSON
+    HTML
+
+
+
+Http Status Codes
+      - 1xx: Informational - Request received, continuing process
+          100
+      - 2xx: Success - The action was successfully received,understood, and accepted
+          200
+          201
+          203 
+      - 3xx: Redirection - Further action must be taken in order to complete the request
+          303
+      - 4xx: Client Error - The request contains bad syntax or cannot be fulfilled
+          401
+      - 5xx: Server Error - The server failed to fulfill an apparently valid request
+          501
+
+Http Request Payload/Message Content Type:
+
+Http Content Types:
+
+Link Definition:
+A link can be viewed as a statement of the form "{context IRI} has a  {relation type} resource at {target IRI}, which has {target attributes}".
+The Link entity-header field provides a means for serialising one or more links in HTTP headers
+ 
+ References:
+    HTTP 1.1 RFC: https://tools.ietf.org/html/rfc2616#section-7
+  
+ 

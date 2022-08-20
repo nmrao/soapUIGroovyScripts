@@ -1,0 +1,29 @@
+context - a TestCaseRunContext object holding context-related properties. 
+The main usage for this is to store values that can be used in subsequent TestSteps or related scripts. 
+
+For example
+      context.myProperty = "Hello"
+      or
+      context.setProperty("myProperty","Hello")
+
+will create a property named "myProperty" in the context and assign it the string value "Hello". 
+In a subsequent script, you can access it with
+
+      context.myProperty will give string "Hello"
+
+      alternatively 
+
+      context.getProperty("myProperty") also give result as  string "Hello" 
+
+      log.info( context.myProperty )
+
+
+Context Object has following methods
+    getModelItem, 
+    getProperties
+    getProperty
+    getPropertyNames
+    hasProperty
+    removeProperty
+    setProperty
+

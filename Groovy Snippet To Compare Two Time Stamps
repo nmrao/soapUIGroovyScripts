@@ -1,0 +1,21 @@
+def startTime="Oct  9 03:49:09";
+def endTime  ="Oct  9 03:50:09";
+def timeToChk="Oct  9 03:49:12";
+
+Following Snippet helps to Check Given Time String between two time intervals or not:
+
+import java.text.SimpleDateFormat;
+def zone = TimeZone.getTimeZone("America/New_York");
+def dateFormat = new SimpleDateFormat("MMM  d HH:mm:ss");
+
+Date timeObjToChk = dateFormat.parse(timeToChk);
+
+Date startTimeObj = dateFormat.parse(startTime);
+Date endTimeObj = dateFormat.parse(endTime);
+
+	if(timeObjToChk.after(startTimeObj)&&timeObjToChk.before(endTimeObj) ) {
+    		log.info("Within Interval")
+	}
+  else{
+       log.info("Outside Interval")
+  }

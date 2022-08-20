@@ -1,0 +1,5 @@
+https://chart.googleapis.com/chart?chs=250x100&chd=t:60,40&cht=p3&chl=Hello|World
+
+def base = 'https://chart.googleapis.com/chart?'
+def params = [chs:'250x100', chd:'t:60,40', cht:'p3', chl:'Hello|World']
+def url = base + params.collect { k,v -> "$k=$v" }.join('&')

@@ -1,0 +1,11 @@
+Adding HTTP Get Request Via Groovy in SOAPUI
+
+import static com.eviware.soapui.impl.wsdl.teststeps.registry.HttpRequestStepFactory.HTTPREQUEST_TYPE 
+//Provide the http request endpoint in the below
+def endpoint = 'http://google.com'
+//Valid http method GET | PUT | POST | DELETE etc
+def method = 'POST'
+def stepName = 'httpPostRequestStep'
+def tc=testRunner.testCase.getTestStepByName(stepName).s
+//Adds http request step to given test case assumes tc is valid object of TestCase
+tc.addTestStep(HTTPREQUEST_TYPE , stepName, endpoint, method)

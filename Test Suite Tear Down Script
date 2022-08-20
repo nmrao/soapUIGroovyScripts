@@ -1,0 +1,12 @@
+UseCase:              Print Summary of execution for my testCases Test Suite
+Place to Keep Script: teardown script of 
+
+def runner = context.testRunner;
+for (testRun in runner.getResults())
+{
+	testCase = testRun.getTestCase()
+	log.info context.expand( '${#Project#testcase_flag}' ) + testCase.getName()
+	for (testResult in  testRun.getResults())
+		log.info testResult.getTestStep().getName() + " : " + testResult.getStatus()
+	  log.info context.expand( '${#Project#testcase_status_flag}' ) + " : " + runner.getStatus()
+}

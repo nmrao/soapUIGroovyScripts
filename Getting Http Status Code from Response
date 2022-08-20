@@ -1,0 +1,4 @@
+Getting Http Status Code from Response
+
+def monServerTestRespheaders = testRunner.testCase.testSteps['GetTestToMonServer'].testRequest.response.getResponseHeaders()
+String  httpStatusCode =monServerTestRespheaders["#status#"];

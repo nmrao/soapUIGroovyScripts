@@ -1,0 +1,6 @@
+Print Step Name and Step Request and Step Response
+
+def testStepName = context.currentStep.label
+log.info testStepName + " REQUEST " + context.currentStep.getPropertyValue("RawRequest")
+log.info testStepName + " RESPONSE " + context.currentStep.getPropertyValue("RawResponse")
+log.info testStepName + " TestStep has status " + "[" + testStepResult.status + "]"

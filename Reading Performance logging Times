@@ -1,0 +1,24 @@
+Reading Performance logging Times 
+
+log.info("Response Time :" + messageExchange.getTimeTaken())
+
+# Following Can be altered to 
+'soapUI log', 
+'http log', 
+'jetty log', 
+'error log' etc.
+
+def logArea = com.eviware.soapui.SoapUI.logMonitor.getLogArea( "http log" );
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context) 
+if( logArea !=null )
+{
+ def model = logArea.model
+ // only continue of logArea not empty
+ if( model.size > 0 )            
+ for( c in 0..(model.size-1) )
+ 
+ // DO SOMETHING HERE... could write to file, could run assertions, etc.
+ log.info(model.getElementAt(c))               
+}
+
+http://webservice-testing.blogspot.in/2012/04/capture-soapui-logs-to-file.html

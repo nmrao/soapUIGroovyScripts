@@ -1,0 +1,2 @@
+ def ts = new java.text.SimpleDateFormat("yyyy-MM-dd-HH:mm:ss.SSS");  //Time Steamp Object
+ def randomString = System.currentTimeMillis()  //Current Epouch object

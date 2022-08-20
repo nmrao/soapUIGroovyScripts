@@ -1,0 +1,14 @@
+testRunner - a TestCaseRunner object, 
+
+which is the entry-point to the soapUI API for accessing project items, results, etc. 
+The testRunner is the object that is actually executing the TestCase by cycling through the 
+TestSteps in the TestCase and executing them. It exposes methods related to test execution and 
+the underlying object model (via the testCase property). Common usage scenarios are:
+
+using testRunner.testCase to get hold of the containing TestCase from which all other objects in the 
+project can be accessed and manipulated using testRunner.fail(...) (or testRunner.cancel) to abort the 
+ongoing TestCase when an error occurs using 
+    testRunner.gotoStepByName(...) 
+    or 
+    testRunning.runTestStepByName( ... ) 
+to transfer execution to another step than the one after the Script TestStep in the TestCase (see ...)

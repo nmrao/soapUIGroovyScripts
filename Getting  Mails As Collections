@@ -1,0 +1,8 @@
+Getting  Mails As Collections :
+Following java Class helps to retrieve latest email messages as Colleaction(HashMap)
+HashMap Key: Unique Email Id Subject
+HashMap Value:is an Array List
+              ArrayList[0] ="Sender Email Address";
+              ArrayList[1] ="Email Body Text";
+               
+              

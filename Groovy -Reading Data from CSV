@@ -1,0 +1,49 @@
+Reading Data from CSV
+
+def prj = testRunner.testCase.getTestSuite().getProject();
+def groovyUtils=new  com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath+"\\"
+log.info projectPath
+def fileName="TestData"+".csv";
+def filePath=projectPath+fileName;
+log.info "Loaded "+filePath
+
+def file = new File(filePath);
+def listofLines=[];
+if(!file.exists()) {
+    log.info "File does not exist"
+    testRunner.cancel("Expected Input Data File:$filePath is Not Avilable,Aborting Test Execution")
+}
+else {
+    (file as List).each {
+		listofLines<<it
+    }
+}
+ 
+for(def line:listofLines){
+	//Skipping Commented Lines From Input data File
+	if(!line[0].equals("#")){
+		def fileds=[];
+		fileds=line.split(",");
+		int filedIndex=0;
+		String propertyName;
+		def propertyValues=[];
+		for(def field:fileds){
+			if(filedIndex==0){
+				propertyName=field;
+			}
+			field=field.trim();
+			if(filedIndex>=1){
+				if(field){
+			 		propertyValues<<field;
+				}
+			}
+			filedIndex++;
+		}
+		String propertyValuesList=propertyValues.join(",");
+		log.info """Property Key: $propertyName	
+				  Property Value: $propertyValuesList"""
+		testRunner.testCase.testSuite.project.setPropertyValue(propertyName, propertyValuesList);
+	}
+}
+String logMsg="--------->>>Properies/Input data Loading Completed Successfully From External CSV File: "+filePath

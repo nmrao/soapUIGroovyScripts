@@ -1,0 +1,6 @@
+Setting parameters in SOAPUI request using a groovy script
+
+${#TestCase#ResquestID}
+${#TestSuite#ResquestID}
+${#Project#ResquestID}
+${#EnV#ResquestID}

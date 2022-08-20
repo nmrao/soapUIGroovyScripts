@@ -1,0 +1,4 @@
+// Set names for the test case, test suite, and project.
+testRunner.testCase.label = 'Sample Test Case Name'
+testRunner.testCase.testSuite.label = 'Sample Test Suite Name'
+testRunner.testCase.testSuite.project.name = 'Sample Project Name'

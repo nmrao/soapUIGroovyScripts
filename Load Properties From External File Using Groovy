@@ -1,0 +1,8 @@
+def props = new Properties()
+//replace the path with your file name below. use / instead of \ as path separator even on windows platform.
+new File("/absolute/path/of/test.properties").withInputStream { s ->
+  props.load(s) 
+}
+props.each {
+    context.testCase.testSuite.setPropertyValue(it.key, it.value)
+}

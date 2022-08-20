@@ -1,0 +1,24 @@
+//Cool Groovy Collections that Helps to Generate Data
+
+Permutations:
+Sample:
+
+        Input:         [field1,field2,field3].permutations()
+        Output:        /[[field1,field2,field3], [field3, field2, field1], [field2, field1, field3], [field3, field1, field2], [field1, field3,field2], [field2, field3, field1]] 
+         
+
+Combinations:
+      letters = ['a', 'b', 'c']
+      numbers = [1, 2, 3]
+      combos = [letters, numbers].combinations()
+      //[[a, 1], [b, 1], [c, 1], [a, 2], [b, 2], [c, 2], [a, 3], [b, 3], [c, 3]]
+
+
+Subsequences:
+      [1,2,3].subsequences()
+      //===> [[1], [1, 2, 3], [2], [2, 3], [1, 2], [3], [1, 3]]
+
+
+Intersect:
+        [1,2,3,4].intersect([2,4])
+        //===> [2, 4]

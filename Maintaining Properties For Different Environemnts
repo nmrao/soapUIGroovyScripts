@@ -1,0 +1,20 @@
+Maintaining Properties For Different Environemnts
+
+Maintaining Properties For Different Environemnts
+    Generally Same Applications are deployed into different environement:
+      1.Test Server               or TEST Environemnt
+      2.Staging Environment       or STAG Environment
+      3.Production Environemnt-1: or PROD1
+      4.Production Environemnt-2: or PROD2
+ Since the application is same, One suite created for one environemnt must run in other environments too.
+ But different environments may have different configuration/test data:
+ for example:
+        EndPoint Will different for each environment
+        Application Login Credentails may be same or different based on configuration
+        Other application specific input data.
+For manging the Different environment Data We have superb feature in SOAPUI Pro/Ready API
+But how can we handle this with OpenSource SOAPUI?
+
+Here are the two Solutions:
+1. Create External CSV File (Data Source) for each environment and Load then conditionally
+2. Create one property file for each environment and based on required requirement enable only that property step and disable other properties steps.

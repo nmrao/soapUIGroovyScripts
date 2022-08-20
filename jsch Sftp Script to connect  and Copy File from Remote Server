@@ -1,0 +1,51 @@
+//Following Script Copies the file from remote linux machine to local folder
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import com.jcraft.jsch.Channel;
+import com.jcraft.jsch.ChannelSftp;
+import com.jcraft.jsch.JSch;
+import com.jcraft.jsch.Session;
+
+String lyxHostName = testRunner.testCase.testSuite.project.getPropertyValue("lyxHostName");
+String lyxUserName = context.expand( '${#Project#lynxUserName}' ).toString()
+String lyxPassword = context.expand( '${#Project#lynxPassword}' ).toString()
+String sftpWorkingDir = "/home/$lyxUserName";
+String logsFolderPath=testRunner.testCase.testSuite.getPropertyValue("logsFolderPath").toString()
+String logFileName=testRunner.testCase.testSuite.getPropertyValue("logFileName").toString();
+
+Session session = null;
+Channel channel = null;
+ChannelSftp channelSftp = null;
+JSch jsch = new JSch();
+session = jsch.getSession(lyxUserName, lyxHostName, 22);
+log.info "Connected"
+
+try {
+     session.setPassword(lyxPassword);
+     java.util.Properties config = new java.util.Properties();
+     config.put("StrictHostKeyChecking", "no");
+     session.setConfig(config);
+     session.connect();
+     channel = session.openChannel("sftp");
+     channel.connect();
+     channelSftp = (ChannelSftp) channel;
+     channelSftp.cd(sftpWorkingDir);
+    	byte[] buffer = new byte[1024];
+     BufferedInputStream bis = new BufferedInputStream(channelSftp.get(logFileName));
+     File newFile = new File(logsFolderPath+logFileName);   //this would be C:/LocalLogsDir/logFileName.txt
+     OutputStream os = new FileOutputStream(newFile);
+     BufferedOutputStream bos = new BufferedOutputStream(os);
+     int readCount;
+     while ((readCount = bis.read(buffer)) > 0) {
+                log.info("Writing: ");
+                bos.write(buffer, 0, readCount);
+            }
+            bis.close();
+            bos.close();
+} catch (Exception ex) {
+	ex.printStackTrace();
+}

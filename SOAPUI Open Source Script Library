@@ -1,0 +1,33 @@
+
+Hint:
+Builtin SoapUI Structure : Use Test Suite to organize scripts/classes into logical space, 
+                           much like namespaces or different libraries of classes(This can be located easily from other scripts)
+
+Procedure:
+1. Creating a Test Suite with a name of "Script Library"
+2. Disabled this Test Suite "Script Library"
+3. Add a Test Case 'Demo'
+4. Added a Groovy Script test step to the 'Demo' Test Case with a name of "HelloWorld"
+5. Add following simple code for groovy Script: 
+    //Following script both defines the class and adds an instance of class to the context object
+
+      context.setProperty("helloWorld", new helloWorld());
+      class helloWorld{
+          def sayHello(name)
+          {
+              return "Hello " + name + "!";
+          }
+       }
+      
+ 6. Create Different Test Suite(To Call Methos in Demo Test Case in  Test Suite "Script Library")
+ 
+      scripts = testRunner.testCase.testSuite.project.testSuites["Script Library"];  //1
+      scripts.testCases["Demo"].testSteps["HelloWorld"].run(testRunner, context);    //2
+      log.info(context.helloWorld.sayHello("Kerry"));                                //3
+      
+ 
+ Explanation:
+      1. First line just gets the instance of the "Script Library" Test Suite 
+      2. Second line runs the "HelloWorld" Groovy Script test step that resides in the "Demo" Test Case
+      
+      

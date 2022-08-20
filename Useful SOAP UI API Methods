@@ -1,0 +1,39 @@
+    
+ 
+ Whithin Current TestSuite and Current TestCase Context
+   def tCase=testRunner.testCase;
+   def tSuite=testRunner.testCase.testSuite;
+   def tProject=testRunner.testCase.testSuite.project;
+   
+ //Whithin diffrent TestSuite's TestCase Context
+    def targetSuite=testRunner.testCase.testSuite.project.testSuite["TestSuiteName"]
+    def targetTestCase=testRunner.testCase.testSuite.project.testSuite["TestSuiteName"].testCase["TestCase"]
+   
+   //Above line scan be minimised as
+     def targetSuite=tProject.testSuite["TestSuiteName"]
+     def targetTestCase=tProject.testSuite["TestSuiteName"].testCase["TestCase"]
+   
+   
+   //Cookie
+   def agentCookie = testRunner.testCase.getTestStepByName("PostAgentLogin").httpRequest.response.responseHeaders["Set-Cookie"][0]
+    
+    testRunner.gotoStepByName( "targetStepName")
+    testRunner.runTestStepByName( "targetStepName")
+    testRunner.cancel("Decribe Cancellation Reason")    "Simplay Stops an ongoing test run with the specified reason".
+    testRunner.fail("Decribe Failure Reason")           "Fails an ongoing test run with the specified reason".
+    testRunner.run()
+    
+    //Run a TestCase located in another project
+    def prj = testRunner.testCase.testSuite.project.workspace.getProjectByName("ProjectName")
+    tCase = prj.testSuites['TestSuiteName'].testCases['TestCaseName']
+    
+   
+     //Checking Whether the project Started from cmd line or GUI
+    if( com.eviware.soapui.SoapUI.isCommandLine() )
+    {
+      log.info "This code is executed by Command Line SoapUI"
+    }
+    if( context.LoadTestContext != null )
+    {
+      log.info "This code is executed from a LoadTest"
+    } 

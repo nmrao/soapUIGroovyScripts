@@ -1,0 +1,18 @@
+Steps to Make Scripts Open Source Version Compatible
+
+1.Avoid using events for cookie sharing:
+	instead create Property @ project level and use that prioperty as header for each step to share the cookie
+2.Avaoid using Data Sources :
+	instead use jsonslurper and get array of values and loop the steps
+3.Avoid Multiple Environments	instead load data freom csv conditionally
+	Create a variable to specify environemnt @project level
+	conditionally load the data from properties file
+4.Avoid External Libraries
+
+Open Source Limitations
+	1.No Data Sources
+	2.No Environent specific End Point and Project Level Propeties
+	3.No Events to share cookies
+	4.No Context Menu Suggestions
+	5.No Test Execution Summary
+	6.In All groovy script editors there is no content assist/auto-completion *******biggest drawback

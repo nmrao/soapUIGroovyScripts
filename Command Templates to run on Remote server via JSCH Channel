@@ -1,0 +1,10 @@
+1.  Command Templates to Delete File on Remote server via jsch Channel
+        String LogFileName=test.log;
+        String command1="rm -rf  /home/"+lyxUserName+"/"+LogFileName
+
+2.  Command Templates to Tail log and Redirecting to a file in BackGround Process
+        String LogFileName=test.log;
+        String command1="tail -f -n 0 "+logPathOnServer+" > /home/"+lyxUserName+"/"+LogFileName+" &"
+
+3.  Command to get Process Id of Tailing Job that running in BackGround
+        String command1="echo `ps  -ef | grep tail | grep -v grep | awk '{print \$2}'`";

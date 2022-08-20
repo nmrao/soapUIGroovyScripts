@@ -1,0 +1,16 @@
+Sample WSDL Files For Practice:
+
+1. Currency Converter Service:            http://www.webservicex.net/CurrencyConvertor.asmx?WSDL
+2. Geocoder Service:                      http://geocoder.us/dist/eg/clients/GeoCoderPHP.wsdl
+3. Temperature Converter Service:         http://webservices.daehosting.com/services/TemperatureConversions.wso?WSDL
+4. Global Weather:                        http://www.webservicex.com/globalweather.asmx?WSDL
+5. Bank BLZ Service (Bank Sort Codes)     http://www.thomas-bayer.com/axis2/services/BLZService?wsdl
+6. Graphical Weather:                     https://graphical.weather.gov/xml/SOAP_server/ndfdXMLserver.php?wsdl
+
+
+
+
+
+
+References:
+https://smudali.wordpress.com/2012/06/28/automated-web-services-testing-using-soapui/

@@ -1,0 +1,14 @@
+import groovy.json.*
+def filePath = "/tmp/file.json"
+def file = new File(filePath)
+assert file.exists() : "file not found"
+assert file.canRead() : "file cannot be read"
+def jsonSlurper = new JsonSlurper()
+def object
+try {
+  object = jsonSlurper.parse(file)
+} catch (JsonException e) {
+  println "File is not valid"
+  throw e
+}
+println object

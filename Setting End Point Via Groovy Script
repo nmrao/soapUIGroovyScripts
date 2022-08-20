@@ -1,0 +1,7 @@
+
+
+testRunner.testCase.properties['endpoint'].setValue('new endpoint')
+or
+testRunner.testCase.getTestStepByName(requestName).getHttpRequest().setEndpoint(ENDPOINT)
+
+

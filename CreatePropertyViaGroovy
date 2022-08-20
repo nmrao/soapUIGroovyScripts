@@ -1,0 +1,2 @@
+Anyways you can use set to create new properties
+  def testCaseProperty = testRunner.testCase.setPropertyValue("myTest", "blah")

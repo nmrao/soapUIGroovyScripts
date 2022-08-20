@@ -1,0 +1,66 @@
+
+<project name="WS-Test"  default="test" >
+	<property file="build.properties"/>
+	<property name="test.dir" value="test-results"/>
+	<property name="project.dir" location="project"/>
+	
+	<target name="clean">
+       <delete dir="${test.dir}"/>
+    </target>
+
+	<target name="init">
+      <mkdir dir="${test.dir}"/>
+    </target>
+
+	<target name="test-with-properties" depends="init">
+		<java classname="com.eviware.soapui.tools.SoapUITestCaseRunner" errorproperty="tests-failed" fork="yes" dir="${test.dir}">
+		  <arg line="-j -M -r -a -f${basedir}/${test.dir}"/>
+		  <arg value="-e${wsdl.url}"/>
+		  <arg value="-s${soapui.testsuite}"/>
+		  <arg value="${project.dir}/${soapui.project}"/>
+		  <arg value="-x${user.name}"/>
+		  <arg value="-x${user.password}"/>
+		  <classpath>
+			<fileset dir="lib" includes="*.jar"/>
+		  </classpath>
+		</java>
+	</target>
+	
+	<target name="test" depends="init">
+		<java classname="com.eviware.soapui.tools.SoapUITestCaseRunner" errorproperty="tests-failed" fork="yes" dir="${test.dir}">
+		  <arg line="-j -M -r -a -f${basedir}/${test.dir}"/>
+		  <arg value="${project.dir}/${soapui.project}"/>
+		  <classpath>
+			<fileset dir="lib" includes="*.jar"/>
+		  </classpath>
+		</java>
+	</target>
+	
+	<target name="test-single-project" depends="init">
+		<antcall target="run-single-test">
+		  <param name="project" value="${project.dir}/${soapui.project}"/>
+		</antcall>
+	</target>
+	
+	<target name="run-single-test">
+	    <java classname="com.eviware.soapui.tools.SoapUITestCaseRunner" errorproperty="tests-failed" fork="yes" dir="${test.dir}">
+		  <arg line="-j -M -r -a -f${basedir}/${test.dir}"/>
+		  <arg value="${project}"/>
+		  <classpath>
+			<fileset dir="lib" includes="*.jar"/>
+		  </classpath>
+		</java>
+	</target>
+	
+	
+	<target name="report">
+		<junitreport todir="${test.dir}">
+		  <fileset dir="${test.dir}">
+			<include name="TEST-*.xml"/>
+		  </fileset>
+		  <report format="frames" todir="${test.dir}/reports/html"/>
+		</junitreport>
+    </target>
+	
+	
+</project>

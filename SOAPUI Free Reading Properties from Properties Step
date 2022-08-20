@@ -1,0 +1,19 @@
+Reading Properties from Properties Step
+
+1.Create: Project>> Test Property Test Step
+2.Create: Test Suite>> Test Suite
+3.Create: Test TestCase>> Test Case
+4.Create: Test Step>> Property Test StepTest Case
+    Create Thee properties
+        prop1: <propertyValue1>
+        prop2: <propertyValue2>
+        prop3: <propertyValue3>
+5.Create a groovy step and access the properties using following code:
+
+    String  prop1=context.expand( '${PropertyStepName#prop1}' ).toString();
+    String  prop2=context.expand( '${PropertyStepName#prop2}' ).toString();
+    String  prop3=context.expand( '${PropertyStepName#prop3}' ).toString(); 
+ 
+ Do whatever logic you need based on above config properties.
+ 
+ 

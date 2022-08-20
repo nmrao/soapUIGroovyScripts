@@ -1,0 +1,13 @@
+Increasing Socket Time Out to 5 mins
+
+import com.eviware.soapui.SoapUI
+import com.eviware.soapui.settings.HttpSettings
+import com.eviware.soapui.model.testsuite.TestStepResult.TestStepStatus
+
+def settings = SoapUI.getSettings();// get the settings 
+// save the possible previous timeout
+def bk_timeout = settings.getString(HttpSettings.SOCKET_TIMEOUT,"");
+// set the new timeout... in your case 5 minutes in miliseconds
+settings.setString(HttpSettings.SOCKET_TIMEOUT,"300000");
+// save the new settings 
+SoapUI.saveSettings();

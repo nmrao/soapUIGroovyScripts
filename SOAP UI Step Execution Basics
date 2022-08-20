@@ -1,0 +1,26 @@
+SOAP UI by default each request is waiting for response and then it is executing the other.
+SOAP UI by default execution flows down top to bottom( using groovy we can create any order)
+
+testRunner Object helps to:
+    jump forward or
+    back or
+    Run specific step of choice in the middle of test execution
+    
+
+to Jump nth step
+     testRunner.gotoStepByName( "nameofteststep")
+
+
+to Execute specific  step and continue normal top down flow:
+      testRunner.runTestStepByName( "nameofteststep" ).
+
+
+### Following snippet will run a particular step and checks the status of the step:
+
+import com.eviware.soapui.model.testsuite.TestStepResult.TestStepStatus
+myTestStepResult = testRunner.runTestStepByName("RequestName")
+myStatus = myTestStepResult.getStatus()
+if (myStatus == TestStepStatus.OK)
+    log.info "The step status is: " + myStatus.toString()
+else
+    log.error "The step status is: " + myStatus.toString()

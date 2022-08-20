@@ -1,0 +1,93 @@
+REST Service
+Resource:      An object or an entity that has a URI where it can be manipulated through HTTP requests.
+Request 
+Response
+
+SLA
+Data Formats :XML JSON  
+End Point
+Request Headers
+Request Body
+Request Headers
+Response Headers
+Request Parameters
+API Key
+Rate-Limiting
+API Autentication
+    Basic Auth
+Session
+  Cookie
+      Set-Cookie
+HATEOAS:          Hypermedia as the Engine of Application State 
+HTTP Protocol
+HTTP Methods
+Http Status Code
+Idempotent
+Mashup
+Parameter
+Property
+SOAP
+cURL
+CORS            Cross Origin Requests allow javascript in websites to do AJAX requests to domains beyond the one initiating the request.
+API Version
+Web Service
+
+
+SOAP            (Simple Object Access Protocol)
+UDDI            (Universal Description, Discovery and Integration)
+WSDL            (Web Services Description Language)
+
+Synchronous  Service 
+Asynchronous Service
+RPC             Remote Procedure Calls
+SOAP 1.1
+SOAP 1.2
+Web Service Cline
+Web Service Input Validation
+
+
+Data In Plan Text Format
+    ID:1
+    Name:Rajendra Prasad
+    Email:Rajendra.Prasad@gmail.com
+    Country:India
+
+Json Message Format:
+        {
+          "ID": "1",
+          "Name": "Rajendra Prasad",
+          "Email": "Rajendra.Prasad@gmail.com",
+          "Country": "India"
+        }
+        
+XML Message Format:
+        <Person>
+            <ID>1</ID>
+            <Name>Rajendra Prasad</Name>
+            <Email>Rajendra.Prasad@gmail.com</Email>
+            <Country>India</Country>
+        </Person>
+
+Headers:
+Headers Mandatory for Every Request/response:No
+But if some Data is Exchanging the following headers are mandatory:
+    Content-Length 
+    Transfer-Encoding
+    
+Request Headers:
+Accept:  
+    If specified in request then those types will be accepted in the response to this request
+            Accept: text/plain, text/ html
+            Accept: text/x-dvi; q=.8; mxb=100000; mxt=5.0, text/x-c
+            Accept:  *.*, q=0.1
+            Accept:  audio/*, q=0.2
+            Accept:  audio/basic q=1
+
+
+Browser Sniffers:
+    Chrome Plugin:
+        1.network Sniffer
+
+
+Request Format:
+https://www.yourmoodle.com/login/token.php?username=USERNAME&password=PASSWORD&service=SERVICESHORTNAME

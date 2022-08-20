@@ -1,0 +1,23 @@
+Retrying Whole Test Case If any Test Step Fails
+
+import  com.eviware.soapui.model.testsuite.Assertable;
+int maxRetryThresholdCount = context.expand( '${#Project#maxRetryThresholdCount}' ).toInteger();
+int retryCount = context.expand( '${#TestCase#retryCount}' ).toInteger(); //retryCount=3 ;
+
+def testCase=testRunner.testCase;
+testCase.testStepList
+//int retryCount=0
+def failed = false
+for(testStep in testCase.testStepList) {
+	if(testStep.name.equals("GetMOLogsAndAssert")){
+		log.info testStep.name
+		retryCount=retryCount+1;
+		testRunner.testCase.setPropertyValue("retryCount", retryCount.toString());
+		if( testStep instanceof Assertable && testStep.assertionStatus.toString() != "VALID" ) {
+	   		failed = true
+	   		if(retryCount<=maxRetryThresholdCount){
+	   			testRunner.gotoStepByName("PrintLogAboutCurrentCarrier");// Looping back to First Step the the Test CaSE
+	   		}
+	  	}
+	}
+}

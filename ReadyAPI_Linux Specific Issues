@@ -1,0 +1,8 @@
+When we run Test Suite from Command line using testRunner.sh
+some times JVM may complain some font type not available
+
+Sample:
+net.sf.jasperreports.engine.util.JRFontNotFoundException: Font 'Arial' is not available to the JVM. See the Javadoc for more details.
+
+To solve this issue:
+we need to copy the linux equivalent font to : JDK_HOME\\jre\\lib\\fonts

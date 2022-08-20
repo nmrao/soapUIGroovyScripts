@@ -1,0 +1,24 @@
+Coding Conventions for SOAPUI/READY API Projects
+
+1. Following strict naming conventions
+	In Request Names
+	In property Names
+	In Groovy Scripts
+	Cookie Names
+	
+2. Organisaing variavles:
+	@Project level
+	@TestSuite level
+	@TestCase level
+
+3. Keeping Logging Statements to make it easy for debugging
+		Phase wise log statements
+		Final log statement
+
+4. Null checks in groovy bscripts
+
+5. Retry logics with
+		max retry count
+		max retry timeout
+
+6. Keeping neat interface definitions
